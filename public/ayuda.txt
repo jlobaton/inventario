@@ -1,0 +1,5 @@
+php artisan migrate
+composer dump-autoload
+php artisan db:seed
+php artisan migrate:make ini
+php artisan make:controller FormularioController
