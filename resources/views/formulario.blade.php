@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Formulario de Pago</title>
+        <title>Formulario de Pago2</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,7 +38,10 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Formulario de Pago</div>
+                <!--div class="title">Formulario de Pago</div-->
+                <div>
+                    kekse
+                </div>
             </div>
         </div>
     </body>

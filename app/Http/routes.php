@@ -16,3 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/formulario', 'FormularioController@index');
+//Route::get('/configuracion', 'ConfiguracionController@index');
+/*Route::get('/configuracion', function(){
+	return "hola mundo";
+});*/
+Route::controller('formulario', 'FormularioController');
+Route::controller('configuracion', 'ConfiguracionController');
+/*
+Route::get('jesus', function()
+{
+	return View::make('configuracion');
+});
+*/

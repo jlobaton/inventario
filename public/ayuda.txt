@@ -1,5 +1,42 @@
+#### Crear una tabla
+ php artisan make:migration create_configuracion
+#### en MySql
+php artisan make:migration
+#### Llenar los datos de la table
+php artisan db:seed
+#### Crear llave de encriptacion
+php artisan key:generate
+
+#### Crear un controlador
+php artisan make:controller FormularioController
+
+####
+
+
 php artisan migrate
 composer dump-autoload
 php artisan db:seed
 php artisan migrate:make ini
-php artisan make:controller FormularioController
+
+
+git config --global user.name "Jesus Lobaton"
+git config --global user.email "jesuslobaton@gmail.com"
+##########################
+Create a new repository
+
+git clone git@gitlab.com:Lobaton/probando.git
+cd probando
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+Existing folder or Git repository
+
+cd existing_folder
+git init
+git remote add origin git@gitlab.com:Lobaton/probando.git
+git add .
+git commit
+git push -u origin master
+

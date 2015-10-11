@@ -11,6 +11,7 @@ class ConfiguracionSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('configuracion')->truncate();
         \DB::table('configuracion')->insert(array(
             'estatus' => '1',
             'titulo' => 'Disculpe...',

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Configuracion extends Migration
+class CreateConfiguracion extends Migration
 {
     /**
      * Run the migrations.
@@ -21,10 +21,11 @@ class Configuracion extends Migration
             $table->timestamps();
         });
 
+        #PARA REGISTRAR LOS DISPOSITIVOS QUE INSTALARON LA APP
         Schema::create('gcm_users', function (Blueprint $table){
             $table->increments('id');
-            $table->string('name');
-            $table->string('email');
+            $table->string('name')->unique();
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }
@@ -37,5 +38,7 @@ class Configuracion extends Migration
     public function down()
     {
         Schema::drop('configuracion');
+        Schema::drop('gcm_users');
+
     }
 }
