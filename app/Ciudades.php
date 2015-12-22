@@ -9,7 +9,7 @@ class Ciudades extends Model
 
     protected $table = 'ciudades';
 
-    protected $fillable = ['id_estados','ciudad','capital'];
+    protected $fillable = ['estado_id','ciudad','capital'];
 
 
     public function scopeSearch($query, $buscar){

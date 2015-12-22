@@ -8,15 +8,16 @@ class Estados extends Model
 {
     protected $table = 'estados';
 
-    protected $fillable = ['estados','is_3166-2'];
+    protected $fillable = ['estado','is_3166-2'];
 
 
     public function scopeSearch($query, $buscar){
-    	return $query->where('estados','LIKE', "%$buscar%");
+    	return $query->where('estado','LIKE', "%$buscar%");
     }
-
+/*
     public function ordernes()
     {
     	return $this->hasOne('App\Ordenes');
     }
+*/
 }

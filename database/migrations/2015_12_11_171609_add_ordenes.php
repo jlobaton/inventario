@@ -12,7 +12,7 @@ class AddOrdenes extends Migration
      */
     public function up()
     {
-        /*
+
         Schema::create('ordenes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
@@ -21,7 +21,7 @@ class AddOrdenes extends Migration
             $table->string('correo');
             $table->integer('cantidad');
             $table->integer('inventario_id')->unsigned();
-            $table->string('tipopago_id');
+            $table->integer('tipopago_id')->unsigned();
             $table->string('bancorigen');
             $table->integer('banco_id')->unsigned();
             $table->date('fecha');
@@ -41,12 +41,13 @@ class AddOrdenes extends Migration
 
             $table->foreign('inventario_id')->references('id')->on('inventario');
             $table->foreign('banco_id')->references('id')->on('banco');
-            $table->foreign('encomienda_id')->references('id')->on('encomienda');
+            $table->foreign('encomienda_id')->references('id')->on('encomienda')->onDelete('cascade');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreign('ciudad_id')->references('id')->on('ciudades');
         });
+
     }
-*/
+
     /**
      * Reverse the migrations.
      *
@@ -54,6 +55,6 @@ class AddOrdenes extends Migration
      */
     public function down()
     {
-  //      Schema::drop('ordenes');
+        Schema::drop('ordenes');
     }
 }

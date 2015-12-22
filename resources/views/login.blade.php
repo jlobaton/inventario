@@ -101,10 +101,15 @@
 
 
     <div class="omb_login">
-        <h3 class="omb_authTitle">INICIO DE SESION</h3>
-
+        <h3 class="omb_authTitle">INICIO DE SESIÓN</h3>
         <div class="row omb_row-sm-offset-3">
             <div class="col-xs-12 col-sm-6">
+                <!-- MENSAJES DEL SISTEMA -->
+                @include('flash::message')
+
+                <!-- MENSAJES DE ERRORDEL SISTEMA -->
+                @include('partials.errors')
+
                 {!! Form::open(['route' => ['login.store'], 'autocomplete'=>'off', 'method' => 'POST']) !!}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="input-group">
@@ -136,16 +141,7 @@
                 </p>
             </div>
         </div>
-
-                <!-- MENSAJES DEL SISTEMA -->
-        @include('flash::message')
-
-        <!-- MENSAJES DE ERRORDEL SISTEMA -->
-        @include('partials.errors')
     </div>
-
-
-
         </div>
 </body>
 

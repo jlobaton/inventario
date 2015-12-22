@@ -44,9 +44,10 @@ class Ordenes extends Model
     {
         return $this->belongsTo('App\Ciudades');
     }
-
+/*
     public function estados()
     {
         return $this->belongsTo('App\Estados');
     }
+*/
 }

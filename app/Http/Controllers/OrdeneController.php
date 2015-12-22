@@ -35,12 +35,14 @@ class OrdeneController extends Controller
     {
         $UltReg = new Carbon(Inventario::UltimoRegistrado());
         $count_ord = Ordenes::count();
-        $datos = Ordenes::Search($request->buscar)->where('estatus','=','Por enviar')->OrderBy('id','ASC')
-                                                     ->paginate(5);
-        return view('ordene.index')->with('datos', $datos)
-                                   ->with('UltReg'         ,$UltReg)
-                                   ->with('count_ord',     $count_ord)
-                                   ->with('buscar',$request->buscar);
+        $datos = Ordenes::Search($request->buscar)->where('estatus','=','Por enviar')->OrderBy('id','ASC')->paginate(5);
+
+//dd(New Carbon($datos[0]->fecha));
+        return view('ordene.index', ['datos'    => $datos,
+                                    'UltReg'    => $UltReg,
+                                    'count_ord' => $count_ord,
+                                    'buscar'    => $request->buscar]
+                    );
     }
 
     public function enviado(Request $request)
@@ -98,7 +100,8 @@ class OrdeneController extends Controller
     public function edit($id)
     {
         //$this->datos->get()
-        dd(Ordenes::find(2)->estado_id);
+        $ed=Ordenes::find(1)->get();
+        dd($ed[0]->ciudades()->get());
         return view('ordene.edit', ['datos' => $this->datos]);
     }
 

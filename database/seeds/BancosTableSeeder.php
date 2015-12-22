@@ -12,7 +12,7 @@ class BancosTableSeeder extends Seeder
      */
     public function run()
     {
-        //\DB::table('banco')->truncate();
+        \DB::table('banco')->truncate();
         \DB::table('banco')->insert(array(
         	'nombre' => 'Provincial',
         	'nrocuenta' => '11111',

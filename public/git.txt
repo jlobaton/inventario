@@ -3,3 +3,19 @@
 git remote -v
 git remote add orign http://xxxx
 git remote remove origin
+
+#subirlo al repositorio
+git push origin master
+
+# lo sube al local
+git -A
+git -m "mensaje"
+
+# Para saber que rama se esta el proyecti
+git branch
+
+#Nueva Rama
+
+#Cambio de Rama
+git branch Test
+git checkout Test

@@ -1,3 +1,4 @@
+ctrl shit c = color
 
 #### Crear un modelo
 php artisan make:model -m create_prueba

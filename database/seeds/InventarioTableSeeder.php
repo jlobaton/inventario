@@ -11,10 +11,10 @@ class InventarioTableSeeder extends Seeder
      */
     public function run()
     {
-    	//\DB::table('inventario')->truncate();
+    	\DB::table('inventario')->truncate();
         \DB::table('inventario')->insert(array(
-        	'descr' => 'cam-002',
-        	'descr2' => '11111',
+        	'codpro' => 'cam-002',
+            'descr' => '11111',
         	'video' => 'Ahorro',
         	'audio' => 'v-15668694',
         	'resolucion' => 'JESUS LOBATON',

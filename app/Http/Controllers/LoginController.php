@@ -49,6 +49,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
+        Flash::success('Sesión Cerrada, hasta luego...');
         return redirect('login');
     }
     /**

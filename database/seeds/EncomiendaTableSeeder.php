@@ -11,7 +11,7 @@ class EncomiendaTableSeeder extends Seeder
      */
     public function run()
     {
-       // \DB::table('encomienda')->truncate();
+        \DB::table('encomienda')->truncate();
         \DB::table('encomienda')->insert(array(
             'nombre' => 'Zoom',
             'observacion' => 'Disculpe...',
