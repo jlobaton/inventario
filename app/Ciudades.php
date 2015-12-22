@@ -16,7 +16,7 @@ class Ciudades extends Model
     	return $query->where('ciudad','LIKE', "%$buscar%");
     }
 
-    public function ordernes()
+    public function ordenes()
     {
     	return $this->hasOne('App\Ordenes');
     }

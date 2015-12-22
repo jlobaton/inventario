@@ -101,7 +101,7 @@ class OrdeneController extends Controller
     {
         //$this->datos->get()
         $ed=Ordenes::find(1)->get();
-        dd($ed[0]->ciudades()->get());
+        dd($ed[0]->ciudades);
         return view('ordene.edit', ['datos' => $this->datos]);
     }
 
