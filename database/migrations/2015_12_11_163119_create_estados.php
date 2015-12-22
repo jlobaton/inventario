@@ -14,22 +14,22 @@ class CreateEstados extends Migration
     {
         //DB::unprepared(File::get(database_path().'/sql/venezuela.sql'));
 
-        Schema::create('estados', function(Blueprint $table) {
+        Schema::create('estado', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('estado');
+            $table->string('nombre');
             $table->timestamps();
             $table->softDeletes();
         });
 
-        Schema::create('ciudades', function(Blueprint $table) {
+        Schema::create('ciudad', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('estado_id')->unsigned();
-            $table->string('ciudad');
+            $table->string('nombre');
             $table->boolean('capital');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('estado_id')->references('id')->on('estados');
+            $table->foreign('estado_id')->references('id')->on('estado');
 
         });
     }
@@ -41,8 +41,8 @@ class CreateEstados extends Migration
      */
     public function down()
     {
-        Schema::drop('ciudades');
-        Schema::drop('estados');
+        Schema::drop('ciudad');
+        Schema::drop('estado');
 
         //Schema::drop('municipios');
         //Schema::drop('parroquias');

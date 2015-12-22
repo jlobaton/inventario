@@ -11,9 +11,9 @@ class EstadosTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('estados')->truncate();
-        \DB::table('estados')->insert(array(
-        	'estado' => 'Lara'
+        \DB::table('estado')->truncate();
+        \DB::table('estado')->insert(array(
+        	'nombre' => 'Lara'
         ));
     }
 }

@@ -100,8 +100,8 @@ class OrdeneController extends Controller
     public function edit($id)
     {
         //$this->datos->get()
-        $ed=Ordenes::find(1)->get();
-        dd($ed[0]->ciudades);
+        $ed=Ordenes::find(1);
+        dd($ed->ciudad->nombre);
         return view('ordene.edit', ['datos' => $this->datos]);
     }
 

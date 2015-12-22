@@ -40,9 +40,9 @@ class Ordenes extends Model
         return $this->belongsTo('App\Encomienda');
     }
 
-    public function ciudades()
+    public function ciudad()
     {
-        return $this->belongsTo('App\Ciudades');
+        return $this->belongsTo('App\Ciudad');
     }
 /*
     public function estados()

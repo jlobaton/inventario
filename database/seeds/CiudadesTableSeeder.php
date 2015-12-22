@@ -11,10 +11,10 @@ class CiudadesTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('ciudades')->truncate();
-        \DB::table('ciudades')->insert(array(
+        \DB::table('ciudad')->truncate();
+        \DB::table('ciudad')->insert(array(
             'estado_id' => '1',
-            'ciudad' => 'Barquisimeto',
+            'nombre' => 'Barquisimeto',
             'capital' => '1'
             ));
     }

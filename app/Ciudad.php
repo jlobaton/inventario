@@ -4,16 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ciudades extends Model
+class Ciudad extends Model
 {
 
-    protected $table = 'ciudades';
+    protected $table = 'ciudad';
 
-    protected $fillable = ['estado_id','ciudad','capital'];
+    protected $fillable = ['estado_id','nombre','capital'];
 
 
     public function scopeSearch($query, $buscar){
-    	return $query->where('ciudad','LIKE', "%$buscar%");
+    	return $query->where('nombre','LIKE', "%$buscar%");
     }
 
     public function ordenes()
