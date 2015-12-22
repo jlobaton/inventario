@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+    font-family: 'Lato';
+}
+
+.container {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.content {
+    text-align: center;
+    display: inline-block;
+}
+
+.title {
+    font-size: 96px;
+}
+
+tabla {
+  width: 100%;
+  border-spacing: 1px;
+}
+
+fila{
+    background: #ddd none repeat scroll 0 0;
+    border: 1px solid #f86;
+    display: table-cell;
+    padding: 4px;
+    width: 33.333%;
+}

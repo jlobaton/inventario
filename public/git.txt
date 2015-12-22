@@ -1,0 +1,5 @@
+#### Guia Basica ###
+
+git remote -v
+git remote add orign http://xxxx
+git remote remove origin

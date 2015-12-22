@@ -1,3 +1,119 @@
+body {
+    background-color: #eee;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-size: 13,9px !important;
+    line-height: 1.42857;
+}
+
+.navbar-form {
+    margin: 0 0px;
+}
+
+.page-header {
+    border-color: #eea236;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+}
+
+#search{
+    background-color: #fdbe49;
+}
+
+.boton{
+    /*margin-top: 17px;*/
+}
+.centrado {
+/*width: 60%;*/
+margin: 0 auto;
+}
+
+.texto_centrado{
+    text-align: center;
+}
+
+.texto_derecha{
+    text-align: right;
+}
+
+
+.titulo {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    border-bottom: 1px solid #FDBE49;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+.acciones {
+    width: 125px;
+    text-align: center;
+}
+
+.tabla_principalv2{
+    margin: 28px auto 40px;
+    padding: 16px 25px 5px;
+    border: 1px solid #fdbe49;
+    border-radius: 7px;
+    background-color: #fff;
+}
+
+.tabla_principal{
+    width: 80%;
+    margin: 28px auto 0px;
+    padding: 16px 25px 5px;
+}
+
+.botonera{
+    width: 100%;
+}
+.btn-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+    width: 85%;
+}
+
+.form-control::-moz-placeholder {
+    color: #999;
+    font-size: 12px;
+    opacity: 1;
+}
+
+.table-responsive {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.footer{
+    background-color: #454444;
+    color: white;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 2 0px;
+    width: 100%;
+}
+
+thead {
+    font-weight: bold;
+    text-align: center;
+    background-color: #FDBE49;
+    color: white;
+}
+
+.eliminadas {
+    font-weight: bold;
+    text-align: center;
+    background-color: #FF4800;
+    color: white;
+}
+
+/*
+
 html, body {
     height: 100%;
 }
@@ -38,3 +154,4 @@ fila{
     padding: 4px;
     width: 33.333%;
 }
+*/

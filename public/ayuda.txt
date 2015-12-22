@@ -1,17 +1,39 @@
+
+#### Crear un modelo
+php artisan make:model -m create_prueba
+
 #### Crear una tabla
- php artisan make:migration create_configuracion
-#### en MySql
-php artisan make:migration
+ php artisan make:migration create_prueba --create=pruebas
+
+ #### Crear una tabla en la BD
+ php artisan migrate
+
+ php artisan migrate:rollback
+
+#### Actualizar
+ php artisan migrate:refresh
+
+#Crear un archivo para el seeder
+php artisan make:seeder UsersTableSeeder
+
 #### Llenar los datos de la table
 php artisan db:seed
+## Llena los datos de la tabla luego de generar nuevamente las tablas
+php artisan migrate:refresh --seed
+
+
 #### Crear llave de encriptacion
 php artisan key:generate
 
 #### Crear un controlador
 php artisan make:controller FormularioController
 
-####
+#### Archivo Request para la validacion
+php artisan make:request ConfiguracionRequest
 
+#### Para mostrar la lista de las rutas
+php artisan route:list
+######
 
 php artisan migrate
 composer dump-autoload
@@ -21,6 +43,33 @@ php artisan migrate:make ini
 
 git config --global user.name "Jesus Lobaton"
 git config --global user.email "jesuslobaton@gmail.com"
+git config --global color.iu true
+git config --list
+
+#Para Agregar Todos
+git add -A
+
+#
+git commit -m "mensaje"
+
+# Ir a una version
+git checkout master
+git checkout r324235
+
+#generar una nueva rama
+git branch Test
+git checkout Test
+-----
+git checkout -b Text > Creamos y nos movemos a la Rama
+
+#Fusiones: para pasar al Master
+git checkout master
+git merge Test
+
+#Eliminamos una Rama
+git brach -D Test
+
+#
 ##########################
 Create a new repository
 

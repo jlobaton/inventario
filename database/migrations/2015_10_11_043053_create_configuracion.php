@@ -19,8 +19,9 @@ class CreateConfiguracion extends Migration
             $table->string('mensaje');
             $table->string('urlimg');
             $table->timestamps();
+            $table->softDeletes();
         });
-
+/*
         #PARA REGISTRAR LOS DISPOSITIVOS QUE INSTALARON LA APP
         Schema::create('gcm_users', function (Blueprint $table){
             $table->increments('id');
@@ -28,6 +29,7 @@ class CreateConfiguracion extends Migration
             $table->string('email')->unique();
             $table->timestamps();
         });
+*/
     }
 
     /**
@@ -37,8 +39,8 @@ class CreateConfiguracion extends Migration
      */
     public function down()
     {
-        Schema::drop('configuracion');
-        Schema::drop('gcm_users');
+        Schema::dropIfExists('configuracion');
+  //      Schema::dropIfExists('gcm_users');
 
     }
 }
