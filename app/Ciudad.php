@@ -9,11 +9,11 @@ class Ciudad extends Model
 
     protected $table = 'ciudad';
 
-    protected $fillable = ['estado_id','nombre','capital'];
+    protected $fillable = ['estado_id','desc','capital'];
 
 
     public function scopeSearch($query, $buscar){
-    	return $query->where('nombre','LIKE', "%$buscar%");
+    	return $query->where('desc','LIKE', "%$buscar%");
     }
 
     public function ordenes()

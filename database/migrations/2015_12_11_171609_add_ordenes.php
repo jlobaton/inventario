@@ -41,7 +41,7 @@ class AddOrdenes extends Migration
 
             $table->foreign('inventario_id')->references('id')->on('inventario');
             $table->foreign('banco_id')->references('id')->on('banco');
-            $table->foreign('encomienda_id')->references('id')->on('encomienda')->onDelete('cascade');
+            $table->foreign('encomienda_id')->references('id')->on('encomienda');
             $table->foreign('estado_id')->references('id')->on('estado');
             $table->foreign('ciudad_id')->references('id')->on('ciudad');
         });

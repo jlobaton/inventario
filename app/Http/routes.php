@@ -10,14 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', 'PrincipalController@index');
-/*
-Route::get('/', function () {
-    return view('layouts.principal');
-});
-*/
 
-Route::resource('/migracion', 'MigracionController');
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+//Route::pattern('id', '\d+');  //Se define solo los parametros van a hacer numeros
+Route::get('/', 'PrincipalController@index');
+
+Route::resource('movil','MovilController');
+
+Route::resource('migracion', 'MigracionController');
 Route::get('migracion/imagenes', [
 	'uses' => 'MigracionController@imagenes',
 	'as' => 'migracion.imagenes']);
@@ -45,7 +46,8 @@ Route::get('configuracion/{id}/destroy', [
 
 Route::resource('banco','BancoController');
 Route::get('banco/{id}/destroy', [
-	'uses' => 'BancoController@destroy',
+	'uses' => 'Ba
+	ncoController@destroy',
 	'as' => 'banco.destroy'
 	]);
 
@@ -81,11 +83,32 @@ Route::get('inventario/{id}/destroy', [
 	]);
 
 
+/*
+Route::post('ordene/updatenviar', function (Request $request)
+	{
+		return $request->all();
+	});*/
+
+Route::post('ordene/updatenviar', [
+	'uses' => 'OrdeneController@updatenviar',
+	'as' => 'ordene.updatenviar'
+	]);
+
+Route::get('ordene/{id}/enviar', [
+	'uses' => 'OrdeneController@enviar',
+	'as' => 'ordene.enviar'
+	]);
+
+Route::get('ordene/enviado', [
+	'uses' => 'OrdeneController@enviado',
+	'as' => 'ordene.enviado']);
+
 Route::resource('ordene','OrdeneController');
 Route::get('ordene/{id}/destroy', [
 	'uses' => 'OrdeneController@destroy',
 	'as' => 'ordene.destroy'
 	]);
+
 
 /*
 Route::group(['prefix' => 'configuracion'], function(){

@@ -2,8 +2,8 @@
 ALTER TABLE ordenes DISABLE KEYS;
 SET FOREIGN_KEY_CHECKS=0;
 
-drop table ciudades;
-drop table estados;
+drop table ciudad;
+drop table estado;
 
 SET FOREIGN_KEY_CHECKS=1;
 ALTER TABLE ordenes ENABLE KEYS;
@@ -12,16 +12,16 @@ ALTER TABLE ordenes ENABLE KEYS;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-CREATE TABLE IF NOT EXISTS `ciudades` (
+CREATE TABLE IF NOT EXISTS `ciudad` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `estado_id` int(10) NOT NULL,
-  `ciudad` varchar(200) NOT NULL,
+  `desc` varchar(200) NOT NULL,
   `capital` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `estado_id` (`estado_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=523 ;
 
-INSERT INTO `ciudades` (`id`, `estado_id`, `ciudad`, `capital`) VALUES
+INSERT INTO `ciudad` (`id`, `estado_id`, `desc`, `capital`) VALUES
 (1, 1, 'Maroa', 0),
 (2, 1, 'Puerto Ayacucho', 1),
 (3, 1, 'San Fernando de Atabapo', 0),
@@ -521,14 +521,14 @@ INSERT INTO `ciudades` (`id`, `estado_id`, `ciudad`, `capital`) VALUES
 (521, 25, 'Isla de Patos', 0),
 (522, 25, 'Islas Los Hermanos', 0);
 
-CREATE TABLE IF NOT EXISTS `estados` (
+CREATE TABLE IF NOT EXISTS `estado` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `estado` varchar(250) NOT NULL,
+  `desc` varchar(250) NOT NULL,
   `iso_3166-2` varchar(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
-INSERT INTO `estados` (`id`, `estado`, `iso_3166-2`) VALUES
+INSERT INTO `estado` (`id`, `desc`, `iso_3166-2`) VALUES
 (1, 'Amazonas', 'VE-X'),
 (2, 'Anzoátegui', 'VE-B'),
 (3, 'Apure', 'VE-C'),
@@ -558,12 +558,12 @@ INSERT INTO `estados` (`id`, `estado`, `iso_3166-2`) VALUES
 CREATE TABLE IF NOT EXISTS `municipios` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `estado_id` int(10) NOT NULL,
-  `municipio` varchar(100) NOT NULL,
+  `desc` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `estado_id` (`estado_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=463 ;
 
-INSERT INTO `municipios` (`id`, `estado_id`, `municipio`) VALUES
+INSERT INTO `municipios` (`id`, `estado_id`, `desc`) VALUES
 (1, 1, 'Alto Orinoco'),
 (2, 1, 'Atabapo'),
 (3, 1, 'Atures'),
@@ -903,12 +903,12 @@ INSERT INTO `municipios` (`id`, `estado_id`, `municipio`) VALUES
 CREATE TABLE IF NOT EXISTS `parroquias` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `municipio_id` int(10) NOT NULL,
-  `parroquia` varchar(250) NOT NULL,
+  `desc` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `municipio_id` (`municipio_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1139 ;
 
-INSERT INTO `parroquias` (`id`, `municipio_id`, `parroquia`) VALUES
+INSERT INTO `parroquias` (`id`, `municipio_id`, `desc`) VALUES
 (1, 1, 'Alto Orinoco'),
 (2, 1, 'Huachamacare Acanaña'),
 (3, 1, 'Marawaka Toky Shamanaña'),
@@ -2049,11 +2049,11 @@ INSERT INTO `parroquias` (`id`, `municipio_id`, `parroquia`) VALUES
 (1138, 462, '23 de enero');
 
 
-ALTER TABLE `ciudades`
-  ADD CONSTRAINT `ciudades_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estados` (`estado_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ciudad`
+  ADD CONSTRAINT `ciudad_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`estado_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `municipios`
-  ADD CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estados` (`estado_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`estado_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `parroquias`
   ADD CONSTRAINT `parroquias_ibfk_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipios` (`municipio_id`) ON DELETE CASCADE ON UPDATE CASCADE;

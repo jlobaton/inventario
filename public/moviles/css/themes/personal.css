@@ -1,0 +1,45 @@
+.ui-li-static.ui-collapsible > .ui-collapsible-heading {
+    margin: 0;
+}
+.ui-li-static.ui-collapsible {
+    padding: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading > .ui-btn {
+    border-top-width: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading.ui-collapsible-heading-collapsed > .ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-content {
+    border-bottom-width: 0;
+}
+
+.datos_banco{
+    font-size: 14px;
+    padding: 10px 10px 5px 5px;
+    text-align: left;
+}
+
+.ui-content2  {
+    border-width: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 0 1em;
+}
+
+.espacio{
+	padding-right: 15px;
+}
+
+.letras{
+    color: #ff8800;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #444444;
+}
+
+.redes_sociales {
+	text-align: center;
+	font-size: 10px;
+	padding: 4px;
+}
+select{
+    color: #aaa !important;
+}

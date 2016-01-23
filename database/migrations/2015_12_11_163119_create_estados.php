@@ -12,8 +12,9 @@ class CreateEstados extends Migration
      */
     public function up()
     {
-        //DB::unprepared(File::get(database_path().'/sql/venezuela.sql'));
+        DB::unprepared(File::get(database_path().'/sql/venezuela.sql'));
 
+/*
         Schema::create('estado', function(Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
@@ -30,8 +31,8 @@ class CreateEstados extends Migration
             $table->softDeletes();
 
             $table->foreign('estado_id')->references('id')->on('estado');
-
         });
+*/
     }
 
     /**
@@ -43,7 +44,6 @@ class CreateEstados extends Migration
     {
         Schema::drop('ciudad');
         Schema::drop('estado');
-
         //Schema::drop('municipios');
         //Schema::drop('parroquias');
     }

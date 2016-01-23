@@ -26,14 +26,18 @@ class PrincipalController extends Controller
      */
     public function index()
     {
-        $UltReg = new Carbon(Inventario::UltimoRegistrado());
+        $UltReg    = (Inventario::UltimoRegistrado());
         $count_inv = Inventario::count();
         $count_ord = Ordenes::count();
-        $count_ord_env = Ordenes::Enviado()->count();
+        $count_ord_env = Ordenes::getEnviado()->count();
+        $datos     = Ordenes::latest('id')->take(1)->get();
+
         return view('layouts.principal', ['count_inv'     => $count_inv,
                                           'count_ord'     => $count_ord,
                                           'count_ord_env' => $count_ord_env,
-                                          'UltReg'        => $UltReg]
+                                          'UltReg'        => $UltReg,
+                                          'datos'        => $datos
+                                          ]
                     );
     }
 

@@ -33,6 +33,7 @@ class LoginController extends Controller
         $usuario = $input["username"];
         $password = $input["password"];
         echo $usuario." ".$password;
+        exit('ddd');
         //return \View::make('formulario');
     }
 

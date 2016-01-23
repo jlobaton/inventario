@@ -39,6 +39,7 @@ class InventarioController extends Controller
     {
         //$datos = \DB::table('inventario')->OrderBy('id','DESC')->paginate(5);
         $datos = Inventario::Search($request->buscar)->OrderBy('id','ASC')->paginate(10);
+
         return view('inventario.index')->with('datos',$datos)
                                         ->with('buscar',$request->buscar);
     }

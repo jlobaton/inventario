@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://inventario.yo',
 
     /*
     |--------------------------------------------------------------------------
@@ -141,6 +141,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -201,6 +204,7 @@ return [
         'Html'      => 'Collective\Html\HtmlFacade',
         'Flash'     => 'Laracasts\Flash\Flash',
         'Excel'     => 'Maatwebsite\Excel\Facades\Excel',
+        'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         /* Laracasts\Flash\Flash::class */
     ],
 

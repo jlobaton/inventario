@@ -1,7 +1,7 @@
 body {
     background-color: #eee;
     color: #333;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif !important;
     font-size: 13,9px !important;
     line-height: 1.42857;
 }
@@ -55,10 +55,10 @@ margin: 0 auto;
 }
 
 .tabla_principalv2{
-    margin: 28px auto 40px;
-    padding: 16px 25px 5px;
-    border: 1px solid #fdbe49;
-    border-radius: 7px;
+    margin: auto auto 40px;
+    /*padding: 16px 25px 5px;*/
+    /*border: 1px solid #fdbe49;
+    border-radius: 7px;*/
     background-color: #fff;
 }
 

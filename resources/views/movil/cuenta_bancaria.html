@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2" />
+
+    <title>Bienvenido</title>
+    <meta charset="utf-8">
+
+  <link rel="stylesheet" href="css/themes/custom.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
+<!-- link rel="stylesheet" href="js/jQueryMobile/jquery.mobile.theme-1.4.5.css" /-->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+  <link rel="stylesheet" href="css/themes/custom.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!--script src="js/jquery-2.1.4.min"></script-->
+<script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
+
+<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script-->
+    </head>
+<body>
+
+<?php
+function cabecera(){
+  echo '<a href="#inicio" data-role="button" data-icon="home" data-iconpos="notext" data-theme="b" data-iconpos="left" data-inline="true">Inicio</a>
+  <h1> Menu Principal </h1>
+  <a href="#" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="b" data-iconpos="right" data-inline="true">Menú</a>';
+}
+
+function footer(){
+  echo '<h2>Todos los derechos resevado @ Seguridad y Sistema JM</h2>';
+}
+?>
+
+<!-- contactenos -->
+<div data-role="page" id="contactenos">
+
+<!-- cabecera -->
+  <div data-role="header" data-theme="e">
+  <?php echo cabecera(); ?>
+  </div>
+
+  <!-- contenido -->
+  <div data-role="main">
+
+  </div>
+
+  <!-- pie de pagina -->
+  <div data-role="footer">
+  <?php echo footer();?>
+  </div>
+
+</div>
+
+
+</body>
+</html>

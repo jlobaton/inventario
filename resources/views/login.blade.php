@@ -81,6 +81,9 @@
     color: red;
 }
 
+body {
+    margin-top: 20px;
+}
 
 @media (min-width: 768px) {
     .omb_login .omb_forgotPwd {
@@ -101,6 +104,8 @@
 
 
     <div class="omb_login">
+
+                    <center><img src="imagenes/logo.svg" alt="Seguridad y Sistema JM"  width="30%" /> </center>
         <h3 class="omb_authTitle">INICIO DE SESIÓN</h3>
         <div class="row omb_row-sm-offset-3">
             <div class="col-xs-12 col-sm-6">
@@ -124,7 +129,7 @@
                     </div>
                     <span class="help-block">Error Clave</span>
 
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 
                     {!! Form::close() !!}
             </div>
@@ -137,7 +142,7 @@
             </div>
             <div class="col-xs-12 col-sm-3">
                 <p class="omb_forgotPwd">
-                    <a href="#">Forgot password?</a>
+                    <a href="#">Recuperar Clave</a>
                 </p>
             </div>
         </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Ing. Jesus Maria Lobaton Escobar">
 
 	<title>@yield('title', 'Bienvenido') | SyS JM</title>
 
@@ -24,6 +24,9 @@
     <!-- Custom Fonts -->
     {!! Html::style('../themes/bower_components/font-awesome/css/font-awesome.min.css') !!}
 
+
+    {!! Html::style('../plugins/datepicker/css/datepicker.css') !!}
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,10 +35,12 @@
     <![endif]-->
 
 	{!! Html::style('css/estilo.css') !!}
+
+<link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif:400,400italic,700italic" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
-
     <div id="wrapper">
         <!-- Navigation -->
         @include('layouts.nav')
@@ -77,5 +82,13 @@
 
     <!-- Custom Theme JavaScript -->
         {!! Html::script('../themes/dist/js/sb-admin-2.js') !!}
+
+        {!! Html::script('../plugins/datepicker/js/bootstrap-datepicker.js') !!}
+
+        <script>
+    $('#myDate').datepicker();
+</script>
+
+
 </body>
 </html>

@@ -2,7 +2,7 @@
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="{{ 'layouts.principal' }}"><i class="glyphicon glyphicon-home"></i> Principal</a>
+                <a href="/"><i class="glyphicon glyphicon-home"></i> Principal</a>
             </li>
             <li>
             <a href="#"><i class="glyphicon glyphicon-th-large"></i> Archivo<span class="fa arrow"></span></a>
@@ -63,8 +63,8 @@
                         <a href="{{ route('ordene.index') }}"><i class="glyphicon glyphicon-list-alt"></i> Ordenes</a>
                     </li>
                     <li>
-                        <a href="{{ route('imagenes.index') }}"><i class="glyphicon glyphicon-picture"></i> Enviados</a>
-                    </li>
+                        <a href="{{ route('ordene.enviado') }}"><i class="fa fa-truck"></i> Enviados</a>
+                   </li>
                     <li>
                         <a href="{{ url('inventario/eliminada') }}"><i class="glyphicon glyphicon-repeat"></i> Eliminadas</a>
                     </li>

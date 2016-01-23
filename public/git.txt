@@ -1,21 +1,69 @@
 #### Guia Basica ###
 
+#configuracion Inicial
+git config --global user.name "Jesus Lobaton"
+git config --global user.email "jesuslobaton@gmail.com"
+git config --global color.iu true
+git config --list
+
+#Confguracion remoto
 git remote -v
 git remote add orign http://xxxx
 git remote remove origin
 
-#subirlo al repositorio
+
+#subirlo al repositorio de la rama llamada master
 git push origin master
 
-# lo sube al local
+#Agrega los archivos modificado y lo sube al repositorio local
 git -A
 git -m "mensaje"
 
-# Para saber que rama se esta el proyecti
+# Para saber que rama se esta el proyecto
 git branch
 
-#Nueva Rama
-
-#Cambio de Rama
+#Crea una rama y Cambio de Rama
 git branch Test
 git checkout Test
+git checkout -b Text > Creamos y nos movemos a la Rama
+
+#Para Agregar Todos
+git add -A
+
+#Subir al repositorio Local
+git commit -m "mensaje"
+
+# Ir a una version
+git checkout master
+git checkout r324235
+-----
+
+#Fusiones: para pasar al Master
+git checkout master
+git merge Test
+
+#Eliminamos una Rama
+git brach -D Test
+
+#
+##########################
+Create a new repository
+
+git clone git@gitlab.com:Lobaton/probando.git
+cd probando
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+Existing folder or Git repository
+
+cd existing_folder
+git init
+git remote add origin git@gitlab.com:Lobaton/probando.git
+git add .
+git commit
+git push -u origin master
+
+#### Traerme los ultimos registros
+user::latest('campo')->get();

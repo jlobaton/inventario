@@ -36,7 +36,7 @@ $factory->define(App\Ordenes::class, function (Faker\Generator $faker){
 		'envdirec' 	=> $faker->address,
 		'estado_id' 	=> 1,
 		'ciudad_id' 	=> 1,
-		'envobser' 	=> $faker->sentence($nbWords = 6),
+		'envobser' 		=> $faker->sentence($nbWords = 6),
 		'estatus' 		=> 'Por Enviar',
 	];
 });

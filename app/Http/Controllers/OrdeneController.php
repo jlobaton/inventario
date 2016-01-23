@@ -8,7 +8,12 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Ordenes;
 use App\Inventario;
-
+use App\Estado;
+use App\Ciudad;
+use App\Banco;
+use App\Tipopago;
+use App\Encomienda;
+use App\Enviado;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\OrdeneRequest;
 use Illuminate\Routing\Route;
@@ -16,14 +21,23 @@ use Carbon\Carbon;
 
 class OrdeneController extends Controller
 {
+    private $estatus_enviado = 'Enviado';
+
     public function __construct()
     {
+        Carbon::setLocale('es');
         //$this->middleware('auth');
-        $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
+        $this->beforeFilter('@find',['only' => ['edit','update','destroy', 'enviar','updatenviar']]);
     }
 
     public function find(Route $route){
-        $this->datos = Ordenes::find($route->getParameter('ordene'));
+        if ($route->getParameter('ordene')){
+            $buscar = $route->getParameter('ordene');
+        }else{
+            $buscar = $route->getParameter('id');
+        }
+
+        $this->datos = Ordenes::find($buscar);
     }
 
     /**
@@ -33,28 +47,65 @@ class OrdeneController extends Controller
      */
     public function index(Request $request)
     {
-        $UltReg = new Carbon(Inventario::UltimoRegistrado());
-        $count_ord = Ordenes::count();
+     //   $UltReg = Inventario::UltimoRegistrado();
+     //   $count_ord = Ordenes::count();
+
         $datos = Ordenes::Search($request->buscar)->where('estatus','=','Por enviar')->OrderBy('id','ASC')->paginate(5);
 
+/*
+dd($datos[0]->fecha->format('d/m/Y'));
+   $fecha =  new Carbon($datos[0]->fecha);
+dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
+*/
 //dd(New Carbon($datos[0]->fecha));
         return view('ordene.index', ['datos'    => $datos,
-                                    'UltReg'    => $UltReg,
-                                    'count_ord' => $count_ord,
                                     'buscar'    => $request->buscar]
                     );
     }
 
     public function enviado(Request $request)
     {
-        /*
-        $datos = Ordenes::Search($request->buscar)->where('estatus','=','Enviado')->OrderBy('id','ASC')
-                                                     ->paginate(5);
+        $datos = Enviado::Search($request->buscar)->OrderBy('id','DESC')->paginate(5);
 
-        return view('inventario.eliminada')->with('datos',$datos)
-                                           ->with('buscar',$request->buscar);
-                                           */
+        return view('ordene.enviado', ['datos'=>$datos,
+                                       'buscar'=>$request->buscar]
+                                       );
     }
+
+    public function enviar(Request $request)
+    {
+        $array_ciudad     = Ciudad::orderBy('desc', 'asc')->lists('desc','id');
+        $array_estado     = Estado::orderBy('desc', 'asc')->lists('desc','id');
+        $array_encomienda = Encomienda::orderBy('nombre', 'asc')->lists('nombre','id');
+
+        return view('ordene.enviar', ['datos'          => $this->datos,
+                                    'array_ciudad'     => $array_ciudad,
+                                    'array_estado'     => $array_estado,
+                                    'array_encomienda' => $array_encomienda
+                                    ]);
+    }
+
+    public function updatenviar(Request $request)
+    {
+
+        $datos = Ordenes::find($request->id);
+        $datos->encomienda_id = $request->encomienda_id;
+        $datos->envdirec = $request->envdirec;
+        $datos->estatus = $this->estatus_enviado;
+        $datos->envobser = $request->envobser;
+        $datos->save();
+
+        $datos = new Enviado();
+        $datos->ordenes_id = $request->id;
+        $datos->nroguia = $request->nroguia;
+        $datos->fecha   = Carbon::createFromFormat('d-m-Y', $request->fecha);
+        $datos->save();
+
+        Flash::success("Se ha registrado ".$datos->nombre. " de forma exitosa!");
+        return redirect()->route('ordene.index');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -99,10 +150,21 @@ class OrdeneController extends Controller
      */
     public function edit($id)
     {
-        //$this->datos->get()
-        $ed=Ordenes::find(1);
-        dd($ed->ciudad->nombre);
-        return view('ordene.edit', ['datos' => $this->datos]);
+        $array_ciudad     = Ciudad::orderBy('desc', 'asc')->lists('desc','id');
+        $array_estado     = Estado::orderBy('desc', 'asc')->lists('desc','id');
+        $array_encomienda = Encomienda::orderBy('nombre', 'asc')->lists('nombre','id');
+        $array_banco      = Banco::orderBy('nombre', 'asc')->lists('nombre','id');
+        $array_tp         = Tipopago::orderBy('nombre', 'asc')->lists('nombre','id');
+
+        //dd($array_ciudad);
+
+        return view('ordene.edit', ['datos'        => $this->datos,
+                                    'array_ciudad' => $array_ciudad,
+                                    'array_estado' => $array_estado,
+                                    'array_encomienda' => $array_encomienda,
+                                    'array_banco' => $array_banco,
+                                    'array_tp' => $array_tp
+                                    ]);
     }
 
     /**

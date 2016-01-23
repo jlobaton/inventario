@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+Use Carbon\Carbon;
 
 class Ordenes extends Model
 {
@@ -13,15 +14,21 @@ class Ordenes extends Model
 
     protected $fillable = ['nombre','apellido', 'seudonimo', 'correo', 'cantidad', 'inventario_id','tipopago_id','bancorigen','banco_id','fecha','monto','obser','envnombre','envcedula','envtele','encomienda_id','envi_direc','estado_id','ciudad_id','enviobser','estatus'];
 
-    protected $dates = ['delete_at'];
+    protected $dates = ['delete_at', 'fecha'];
 
     public function scopeSearch($query, $buscar){
     	return $query->where('nombre','LIKE', "%$buscar%");
     }
 
-    public static function Enviado()
+    public static function prettyDate($fecha){
+        $this->attributes['fecha'] = Carbon::createFromDate('d-m-Y', $fecha);
+    }
+
+    public static function getEnviado()
     {
         $datos = Ordenes::where('estatus','=','Enviado')->OrderBy('id','ASC');
+//        dd($datos);
+
         return $datos;
     }
 
@@ -44,10 +51,15 @@ class Ordenes extends Model
     {
         return $this->belongsTo('App\Ciudad');
     }
-/*
-    public function estados()
+
+    public function estado()
     {
-        return $this->belongsTo('App\Estados');
+        return $this->belongsTo('App\Estado');
     }
-*/
+
+    public function enviado()
+    {
+        return $this->hasOne('App\Enviado');
+    }
+
 }
