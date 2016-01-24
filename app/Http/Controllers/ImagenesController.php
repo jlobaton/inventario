@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 use App\Inv_imag;
 class ImagenesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        //$this->beforeFilter('@find',['only' => ['edit','update']]);
+    }
     /**
      * Display a listing of the resource.
      *

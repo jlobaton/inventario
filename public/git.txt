@@ -17,7 +17,7 @@ git push origin master
 
 #Agrega los archivos modificado y lo sube al repositorio local
 git -A
-git -m "mensaje"
+git commit -m "mensaje"
 
 # Para saber que rama se esta el proyecto
 git branch

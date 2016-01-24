@@ -16,7 +16,7 @@ class TipopagoController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
     }
 

@@ -16,7 +16,7 @@ class PrincipalController extends Controller
 {
     function __construct(){
         Carbon::setLocale('es');
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**

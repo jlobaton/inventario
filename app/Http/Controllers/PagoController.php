@@ -11,6 +11,12 @@ class PagoController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
+        //$this->beforeFilter('@find',['only' => ['edit','update']]);
+    }
+
+    public function __construct()
+    {
         //$this->middleware('auth');
     }
 
