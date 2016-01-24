@@ -10,7 +10,6 @@
                 height: 100%;
             }
 
-
             body {
                 margin: 0;
                 padding: 0;
@@ -41,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">Objeto no localizado</div>
             </div>
         </div>
     </body>

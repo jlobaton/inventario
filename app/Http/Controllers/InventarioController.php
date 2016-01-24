@@ -28,6 +28,7 @@ class InventarioController extends Controller
 
     public function find(Route $route){
         $this->datos = Inventario::find($route->getParameter('inventario'));
+        $this->notFound($this->datos);
     }
 
     /**

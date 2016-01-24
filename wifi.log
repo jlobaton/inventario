@@ -1,9 +1,0 @@
-driver: brcmsmac
-version: 3.13.0-24-generic
-firmware-version: 610.812
-bus-info: bcma0:0
-supports-statistics: yes
-supports-test: no
-supports-eeprom-access: no
-supports-register-dump: no
-supports-priv-flags: no
