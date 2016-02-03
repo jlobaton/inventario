@@ -8,6 +8,17 @@
             <a href="#"><i class="glyphicon glyphicon-th-large"></i> Archivo<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
+                    <a href="#"><i class="glyphicon glyphicon-user"></i> Usuario<span class="fa arrow"></span></a>
+                     <ul class="nav nav-third-level">
+                        <li>
+                            <a href="{{ route('usuarios.index') }}"><i class="glyphicon glyphicon-user"></i> Listados</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('usuarios/eliminada') }}"><i class="glyphicon glyphicon-repeat"></i> Eliminadas</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#"><i class="glyphicon glyphicon-barcode"></i> Encomienda<span class="fa arrow"></span></a>
                      <ul class="nav nav-third-level">
                         <li>
@@ -25,7 +36,7 @@
                             <a href="{{ route('banco.index') }}"><i class="glyphicon glyphicon-signal"></i> Listados</a>
                         </li>
                         <li>
-                            <a href="{{ route('banco.index') }}"><i class="glyphicon glyphicon-repeat"></i> Eliminadas</a>
+                            <a href="{{ url('banco/eliminada') }}"><i class="glyphicon glyphicon-repeat"></i> Eliminadas</a>
                         </li>
                     </ul>
                 </li>

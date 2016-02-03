@@ -20,7 +20,7 @@ class EncomiendaController extends Controller
 
     public function find(Route $route){
         $this->datos = Encomienda::find($route->getParameter('encomienda'));
-        return $this->datos;
+        //return $this->datos;
     }
 
     /**

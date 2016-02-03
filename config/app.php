@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -142,7 +142,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        //Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
 
         /*
@@ -204,7 +204,7 @@ return [
         'Html'      => 'Collective\Html\HtmlFacade',
         'Flash'     => 'Laracasts\Flash\Flash',
         'Excel'     => 'Maatwebsite\Excel\Facades\Excel',
-        'Debugbar'  => 'Barryvdh\Debugbar\Facade',
+        //'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         /* Laracasts\Flash\Flash::class */
     ],
 

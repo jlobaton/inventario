@@ -50,7 +50,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        Flash::success('Sesión Cerrada, hasta luego...');
+        Flash::success('Sesión ha sido Cerrada...');
         return redirect('login');
     }
     /**
@@ -67,7 +67,7 @@ class LoginController extends Controller
         if (Auth::attempt(['name' => $request->input('username'), 'password' => $request->input('password')])) {
             return redirect()->to('/');
         }
-        Flash::error("Los datos no son validos");
+        Flash::error("Los datos son incorretos...");
         return redirect()->route('login.index');
    }
 

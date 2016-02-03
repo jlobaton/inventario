@@ -20,7 +20,9 @@ class ComposerServiceProvider extends ServiceProvider
                         'encomienda.*',
                         'banco.*',
                         'configuracion.*',
-                        'migracion.*'
+                        'migracion.*',
+                        'usuarios.*',
+                        'imagenes.*'
                         ], 'App\Http\ViewComposers\AsideComposer');
     }
 

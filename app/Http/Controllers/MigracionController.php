@@ -101,35 +101,44 @@ class MigracionController extends Controller
     {
         //$file = $request->file('archivo');
         //$file = "inventario.xls";
+        self::saveArchivo($request->file('archivo'));
         $file = $request->file('archivo')->getClientOriginalName();
         $path_file = storage_path().'/app/'.$file;
         //dd($path_file);
         //$path_file = \Storage::disk('local').'/inventario.xls';
 
         //Verificamos si se va a borrar los datos de la tabla de INVENTARIO
-        if ($request->borrar) \DB::table('inventario')->truncate();
+        if ($request->borrar){
+            \DB::statement('SET FOREIGN_KEY_CHECKS = 0'); // disable foreign key constraints
+            \DB::table('inventario')->truncate();
+            \DB::statement('SET FOREIGN_KEY_CHECKS = 1'); // disable foreign key constraints
+        }
 
         $i = 0;
         \Excel::load($path_file, function($reader) {
+           $i = 0;
            // dd($reader->sheetsSelected());
             foreach ($reader->get() as $prod) {
-         //       $i= $i+1;
+                $i= $i+1;
+
+               // dd($prod);
                 Inventario::create([
                     'codpro'    => $prod->codpro,
                     'descr'     => $prod->descr,
-                    'descr2'    => $prod->descr2,
-                    'video'     => $prod->video,
-                    'audio'     => $prod->audio,
-                    'resolucion'=> $prod->resolucion,
-                    'almacenamiento' => $prod->almacenamiento,
-                    'grabacion' => $prod->grabacion,
-                    'general'   => $prod->general,
+                    'descr2'    => trim((trim($prod->descr2)=='NULL')? '' : $prod->descr2),
+                    'video'     => trim(($prod->video=='NULL')? '' : $prod->video),
+                    'audio'     => trim(($prod->audio=='NULL')? '' : $prod->audio),
+                    'resolucion'=> trim(($prod->resolucion=='NULL')? '' : $prod->resolucion),
+                    'almacenamiento' => trim(($prod->almacenamiento=='NULL')? '' : $prod->almacenamiento),
+                    'grabacion' => trim(($prod->grabacion=='NULL')? '' : $prod->grabacion),
+                    'general'   => trim(($prod->general=='NULL')? '' : $prod->general),
                     'exist'     => $prod->exist,
                     'oferta'    => $prod->oferta,
                     'precio'    => $prod->precio
                 ]);
             //$i++;
             }
+           // dd($i);
         });
         return $i;
     }
@@ -162,7 +171,11 @@ class MigracionController extends Controller
         //$path_file = \Storage::disk('local').'/inventario.xls';
 
         //Verificamos si se va a borrar los datos de la tabla de INVENTARIO
-        if ($request->borrar) \DB::table('inv_imag')->truncate();
+        if ($request->borrar){
+            \DB::statement('SET FOREIGN_KEY_CHECKS = 0'); // disable foreign key constraints
+            \DB::table('inv_imag')->truncate();
+            \DB::statement('SET FOREIGN_KEY_CHECKS = 1'); // disable foreign key constraints
+        }
 
         //$i = 0;
         \Excel::load($path_file, function($reader) {

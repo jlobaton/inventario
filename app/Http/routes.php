@@ -16,6 +16,14 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 //Route::pattern('id', '\d+');  //Se define solo los parametros van a hacer numeros
 Route::get('/', 'PrincipalController@index');
 
+Route::get('usuarios/{id}/restaurar', [
+	'uses' => 'UsersController@restaurar',
+	'as' => 'usuarios.restaurar'
+	]);
+Route::get('usuarios/eliminada', 'UsersController@eliminada');
+Route::resource('usuarios','UsersController');
+
+
 Route::resource('movil','MovilController');
 
 Route::resource('migracion', 'MigracionController');
@@ -44,15 +52,19 @@ Route::get('configuracion/{id}/destroy', [
 	'as' => 'configuracion.destroy'
 	]);
 
+
+Route::get('banco/{id}/restaurar', [
+	'uses' => 'BancoController@restaurar',
+	'as' => 'banco.restaurar'
+	]);
+Route::get('banco/eliminada', 'BancoController@eliminada');
 Route::resource('banco','BancoController');
 Route::get('banco/{id}/destroy', [
-	'uses' => 'Ba
-	ncoController@destroy',
+	'uses' => 'BancoController@destroy',
 	'as' => 'banco.destroy'
 	]);
 
 Route::get('encomienda/eliminada', 'EncomiendaController@eliminada');
-
 Route::resource('encomienda','EncomiendaController');
 Route::get('encomienda/{encomienda}/destroy', [
 	'uses' => 'EncomiendaController@destroy',

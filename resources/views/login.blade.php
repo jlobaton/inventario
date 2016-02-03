@@ -13,9 +13,7 @@
     {!! Html::style('css/estilo.css') !!}
 
         <!-- Scripts -->
-    {!! Html::script('http://code.jquery.com/jquery-1.11.3.js') !!}
-
-    {!! Html::script('js/bootstrap.min.js') !!}
+    {{-- {!! Html::script('http://code.jquery.com/jquery-1.11.3.js') !!} --}}
     <style type="text/css">
 
 /*
@@ -92,20 +90,18 @@ body {
     }
 }
     </style>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif:400,400italic,700italic" rel="stylesheet" type="text/css">
 
 <div class="container">
 
-
     <div class="omb_login">
 
-                    <center><img src="imagenes/logo.svg" alt="Seguridad y Sistema JM"  width="30%" /> </center>
+        <center><img src="imagenes/logo.svg" alt="Seguridad y Sistema JM"  width="30%" /></center>
         <h3 class="omb_authTitle">INICIO DE SESIÓN</h3>
         <div class="row omb_row-sm-offset-3">
             <div class="col-xs-12 col-sm-6">
@@ -127,7 +123,7 @@ body {
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                         <input  type="password" class="form-control" name="password" id="password" placeholder="Clave">
                     </div>
-                    <span class="help-block">Error Clave</span>
+                    <span class="help-block"></span>
 
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 
