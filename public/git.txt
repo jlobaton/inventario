@@ -45,7 +45,14 @@ git merge Test
 #Eliminamos una Rama
 git brach -D Test
 
-#
+#Devolver un commit
+git commit -m 'initial commit'
+git add forgotten_file
+git commit --amend
+
+#Bajar del repositorio
+git pull
+
 ##########################
 Create a new repository
 
