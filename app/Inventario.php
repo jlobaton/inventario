@@ -23,6 +23,14 @@ class Inventario extends Model
         return Inventario::max('created_at');
     }
 
+    public static function ActivarProducto($id){
+
+        $datos = Inventario::find($id);
+        //dd($datos);
+        $datos->estatus = true;
+        $datos->save();
+    }
+
     public function inv_imag()
     {
     	return $this->hasOne('App\Inv_imag');

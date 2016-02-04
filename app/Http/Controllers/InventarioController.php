@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\InventarioRequest;
 use App\Http\Controllers\Controller;
 use App\Inventario;
 use Laracasts\Flash\Flash;
-use App\Http\Requests\InventarioRequest;
 use Illuminate\Routing\Route;
 
 class InventarioController extends Controller
@@ -27,7 +27,11 @@ class InventarioController extends Controller
     }
 
     public function find(Route $route){
-        $this->datos = Inventario::find($route->getParameter('inventario'));
+
+        if ($route->getParameter('inventario')) $codigo = $route->getParameter('inventario');
+        else $codigo = $route->getParameter('id');
+
+        $this->datos = Inventario::find($codigo);
         $this->notFound($this->datos);
     }
 
@@ -117,6 +121,8 @@ class InventarioController extends Controller
     {
         //$conf = $this->datos->delete($id);
         $datos = Inventario::find($id);
+        $datos->estatus = false;
+        $datos->save();
         $datos->delete();
 
         Flash::error("Se ha eliminado de forma exitosa!");
@@ -136,9 +142,10 @@ class InventarioController extends Controller
     public function restaurar(Request $request)
     {
         $datos = Inventario::onlyTrashed($request->id)->restore();
+    //    Inventario::ActivarProducto($request->id);
         $datos = Inventario::onlyTrashed($request->buscar)->OrderBy('id','ASC')->paginate(5);
         Flash::success("Se ha Resturado de forma exitosa!");
-        return view('inventario.index')->with('datos',$datos)
+        return view('inventario.eliminada')->with('datos',$datos)
                                        ->with('buscar',$request->buscar);
     }
 

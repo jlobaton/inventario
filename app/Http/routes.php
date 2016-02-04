@@ -82,18 +82,16 @@ Route::get('encomienda/{id}/restaurar', [
 	'as' => 'encomienda.restaurar'
 	]);
 
-Route::get('inventario/eliminada', 'InventarioController@eliminada');
 Route::get('inventario/{id}/restaurar', [
 	'uses' => 'InventarioController@restaurar',
 	'as' => 'inventario.restaurar'
 	]);
-
+Route::get('inventario/eliminada', 'InventarioController@eliminada');
 Route::resource('inventario','InventarioController');
 Route::get('inventario/{id}/destroy', [
 	'uses' => 'InventarioController@destroy',
 	'as' => 'inventario.destroy'
 	]);
-
 
 /*
 Route::post('ordene/updatenviar', function (Request $request)
