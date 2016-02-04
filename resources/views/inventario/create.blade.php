@@ -54,6 +54,12 @@
 		</div>
 
 		<div class="form-group">
+			{!! Form::label('estatus','¿Activar ?', ['class' => '']); !!}
+			{!! Form::radio('estatus', '1') !!} Si &nbsp;&nbsp;&nbsp;
+			{!! Form::radio('estatus', '0') !!} No
+		</div>
+
+		<div class="form-group">
 			<a class="btn btn-primary" href="{{ route('inventario.index') }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
 
 			{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}

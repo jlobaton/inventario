@@ -11,7 +11,7 @@ class Inventario extends Model
 
     protected $table = 'inventario';
 
-    protected $fillable = ['codpro','descr', 'video','audio','resolucion','almacenamiento','grabacion','general','exist','oferta','precio','created_at','update_at'];
+    protected $fillable = ['codpro','descr', 'video','audio','resolucion','almacenamiento','grabacion','general','exist','oferta','precio','estatus','created_at','update_at'];
 
     protected $dates = ['delete_at'];
 

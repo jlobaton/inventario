@@ -46,10 +46,17 @@
 			{!! Form::label('precio','Precio'); !!}
 			{!! Form::number('precio',$datos->precio, ['class' => 'form-control', 'placeholder' => 'Indique el Precio de Venta', 'required']); !!}
 		</div>
+
 		<div class="form-group">
 			{!! Form::label('oferta','¿Este producto esta en Oferta?', ['class' => 'alert-danger']); !!}
 			{!! Form::radio('oferta', '1', $datos->oferta) !!} Si &nbsp;&nbsp;&nbsp;
 			{!! Form::radio('oferta', '0', ($datos->oferta==0)? TRUE : FALSE) !!} No
+		</div>
+
+		<div class="form-group">
+			{!! Form::label('estatus','¿Activar ?', ['class' => '']); !!}
+			{!! Form::radio('estatus', '1', $datos->estatus) !!} Si &nbsp;&nbsp;&nbsp;
+			{!! Form::radio('estatus', '0', ($datos->estatus==0)? TRUE : FALSE) !!} No
 		</div>
 
 		<div class="form-group">
