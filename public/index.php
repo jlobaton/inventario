@@ -18,7 +18,7 @@
 | loading any of our classes later on. It feels nice to relax.
 |
 */
-$entorno = "hosting";//"hosting";
+$entorno = "";//"hosting";
 if ($entorno == "hosting"){
 	require __DIR__.'/../../laravel/bootstrap/autoload.php';
 	$app = require_once __DIR__.'/../../laravel/bootstrap/app.php';
