@@ -29,7 +29,11 @@
         @if($datos)
         @foreach ($datos as $dato)
             <tr>
-                <td class="texto_centrado">@if ($dato->oferta)<span class="glyphicon glyphicon-star" aria-hidden="true"></span>@endif</td>
+                <td class="texto_centrado">
+                    @if ($dato->oferta)<span class="glyphicon glyphicon-star" aria-hidden="true"></span>@endif
+                    @if (!$dato->estatus)<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>@endif
+                </td>
+
                 <td>{{ $dato->codpro }}</td>
                 <td>{{ $dato->descr }}</td>
                 <td class="texto_centrado">{{ $dato->exist }}</td>
