@@ -11,6 +11,7 @@
 |
 */
 
+Route::resource('mail','MailController');
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 //Route::pattern('id', '\d+');  //Se define solo los parametros van a hacer numeros

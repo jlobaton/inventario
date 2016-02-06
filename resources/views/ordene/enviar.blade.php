@@ -14,13 +14,19 @@
 
 		<div class="form-group">
 			{!! Form::label('nroguia','Nro Guia'); !!}
-			{!! Form::text('nroguia',NULL, ['class' => 'form-control', 'placeholder' => 'Indique el Numero de la Guia', 'required']); !!}
+			{!! Form::text('nroguia',NULL, ['class' => 'form-control', 'required']); !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('encomienda_id','Encomienda'); !!}
-			{!! Form::select('encomienda_id', $array_encomienda, $datos->encomienda_id, ['class' => 'form-control', 'placeholder' => 'Indique la Encomienda', 'required']); !!}
+			{!! Form::select('encomienda_id', $array_encomienda, $datos->encomienda_id, ['class' => 'form-control', 'placeholder' => 'Seleccione la Encomienda', 'required']); !!}
 		</div>
+
+		<div class="form-group">
+			{!! Form::label('correo','Correo'); !!}
+			{!! Form::text('correo', $datos->correo, ['class' => 'form-control', 'required']); !!}
+		</div>
+
 		<div class="form-group">
 			{!! Form::label('envdirec','Dirección del Envío'); !!}
 			{!! Form::text('envdirec',$datos->envdirec, ['class' => 'form-control', 'placeholder' => 'Indique la dirección exacta del envío', 'required']); !!}

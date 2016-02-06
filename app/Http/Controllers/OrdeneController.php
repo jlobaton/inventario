@@ -18,6 +18,7 @@ use Laracasts\Flash\Flash;
 use App\Http\Requests\OrdeneRequest;
 use Illuminate\Routing\Route;
 use Carbon\Carbon;
+use App\Http\Controllers\MailController;
 
 class OrdeneController extends Controller
 {
@@ -88,10 +89,12 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
     public function updatenviar(Request $request)
     {
 
+        MailController::send($request->all());
+        dd('pausa');
         $datos = Ordenes::find($request->id);
         $datos->encomienda_id = $request->encomienda_id;
         $datos->envdirec = $request->envdirec;
-        $datos->estatus = $this->estatus_enviado;
+        $datos->estatus  = $this->estatus_enviado;
         $datos->envobser = $request->envobser;
         $datos->save();
 
