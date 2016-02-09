@@ -57,9 +57,9 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('obser','Observación'); !!}
-			{!! Form::text('obser',$datos->obser, ['class' => 'form-control', 'placeholder' => 'Observación General']); !!}
+			{!! Form::textarea('obser',$datos->obser, ['class' => 'form-control', 'placeholder' => 'Observación General', "rows"=> 2,'']); !!}
 		</div>
-		*** Datos del Envio
+		<h3> Datos del Envio </h3>
 		<div class="form-group">
 			{!! Form::label('envnombre','Nombre Completo'); !!}
 			{!! Form::text('envnombre',$datos->envnombre, ['class' => 'form-control', 'placeholder' => 'Indique el nombre completo de la persona quien va a retirar', 'required']); !!}
@@ -91,7 +91,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('envobser','Observación'); !!}
-			{!! Form::text('envobser',$datos->envobser, ['class' => 'form-control', 'placeholder' => 'Observación General']); !!}
+			{!! Form::textarea('envobser',$datos->envobser, ['class' => 'form-control', 'placeholder' => 'Observación General',"rows"=> 2]); !!}
 		</div>
 		<div class="form-group">
 			<a class="btn btn-primary" href="{{ redirect()->back() }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>

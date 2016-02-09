@@ -36,7 +36,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('general','Observación'); !!}
-			{!! Form::text('general',$datos->general, ['class' => 'form-control', 'placeholder' => 'Indique cualquier Observación', '']); !!}
+			{!! Form::textarea('general',$datos->general, ['class' => 'form-control', 'placeholder' => 'Indique cualquier Observación', "rows"=> 2, '']); !!}
 		</div>
 		<div class="form-group">
 			{!! Form::label('exist','Existencia'); !!}
