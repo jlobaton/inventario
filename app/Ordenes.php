@@ -32,6 +32,12 @@ class Ordenes extends Model
         return $datos;
     }
 
+    public static function getPorenviar()
+    {
+        $datos = Ordenes::where('estatus','=','Por Enviar')->OrderBy('id','ASC');
+        return $datos;
+    }
+
 	public function inventario()
 	{
 		return $this->belongsTo('App\Inventario');

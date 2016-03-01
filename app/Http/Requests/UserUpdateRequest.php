@@ -24,8 +24,8 @@ class UserUpdateRequest extends Request
     public function rules()
     {
         return [
-            'name'  => 'min:3|required|unique:users,name',
-            'email' => 'min:4|email|required|unique:users,email',
+            'name'  => 'min:3|required',
+            'email' => 'min:4|email|required',
             'tipo'  => 'required'
         ];
     }

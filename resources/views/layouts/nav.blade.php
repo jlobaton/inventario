@@ -144,7 +144,7 @@
                             <a href="{{ route('ordene.index') }}">
                                 <div>
                                     <i class="fa fa-comment fa-fw"></i> Nuevos Pedidos
-                                    <span class="pull-right text-muted small">{{ $datos_pedido[0]->fecha->diffForHumans() }}</span>
+                                    <span class="pull-right text-muted small">{{ (isset($datos_pedido))? $datos_pedido[0]->fecha->diffForHumans() : ''  }}</span>
                                 </div>
                             </a>
                         </li>
@@ -152,8 +152,10 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
+
+                                    <i class="glyphicon glyphicon-hourglass fa-fw"></i> Por Enviar
+                                    <span class="pull-right text-muted small">{{ (isset($PorEnviar))? $PorEnviar[0]->fecha->diffForHumans() : ''  }}
+                                   </span>
                                 </div>
                             </a>
                         </li>
@@ -161,8 +163,8 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-truck fa-fw"></i> Enviado
+                                    <span class="pull-right text-muted small">{{ (isset($Enviado))? (is_array($Enviado)) ? $Enviado[0]->fecha->diffForHumans() : '' : ''     }}</span>
                                 </div>
                             </a>
                         </li>

@@ -8,13 +8,17 @@
 <a href="{{ route('ordene.create') }}" class="btn btn-info boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
 
 {!! Form::open(['route' => 'ordene.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-        <div class='input-group'>
-            {!! Form::text('buscar', $buscar, ['class'=> 'form-control', 'placeholder' => 'Buscar ...', 'aria-describedby' => 'search']) !!}
-            <span class="input-group-addon" id='search'><span class="glyphicon glyphicon-search"  aria-hidden="true"></span></span>
-        </div>
-    {!! Form::close()!!}
-<hr>
 
+<div class="input-group">
+    <a href="{{ route('ordene.reporteporenviar') }}" class="btn"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a>
+</div>
+
+<div class="input-group custom-search-form">
+    {!! Form::text('buscar', $buscar, ['class'=> 'form-control', 'placeholder' => 'Buscar ...', 'aria-describedby' => 'search']) !!}
+    <span class="input-group-btn"><button type="submit" class="btn btn-default" id='search'><i class="fa fa-search"></i></button></span>
+</div>
+{!! Form::close()!!}
+<hr>
 <div class="centrado">
 <table class="table table-hover table-bordered table-striped">
     <thead>

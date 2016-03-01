@@ -15,6 +15,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(['ordene.*',
+                        'mail.*',
                         'inventario.*',
                         'layouts.principal',
                         'encomienda.*',
@@ -22,7 +23,8 @@ class ComposerServiceProvider extends ServiceProvider
                         'configuracion.*',
                         'migracion.*',
                         'usuarios.*',
-                        'imagenes.*'
+                        'imagenes.*',
+                        'graciaspago.*'
                         ], 'App\Http\ViewComposers\AsideComposer');
     }
 

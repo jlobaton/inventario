@@ -22,13 +22,20 @@ use App\Http\Controllers\MailController;
 
 class OrdeneController extends Controller
 {
-    private $estatus_enviado = 'Enviado';
+    private $estatus_enviado  = 'Enviado';
 
     public function __construct()
     {
         Carbon::setLocale('es');
         $this->middleware('auth');
         $this->beforeFilter('@find',['only' => ['edit','update','destroy', 'enviar','updatenviar']]);
+
+        $this->array_ciudad     = Ciudad::orderBy('desc', 'asc')->lists('desc','id');
+        $this->array_estado     = Estado::orderBy('desc', 'asc')->lists('desc','id');
+        $this->array_encomienda = Encomienda::orderBy('nombre', 'asc')->lists('nombre','id');
+        $this->array_banco      = Banco::orderBy('nombre', 'asc')->lists('nombre','id');
+        $this->array_tp         = Tipopago::orderBy('nombre', 'asc')->lists('nombre','id');
+
     }
 
     public function find(Route $route){
@@ -90,7 +97,7 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
     {
 
         MailController::send($request->all());
-        dd('pausa');
+        //dd('pausa');
         $datos = Ordenes::find($request->id);
         $datos->encomienda_id = $request->encomienda_id;
         $datos->envdirec = $request->envdirec;
@@ -116,7 +123,15 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
      */
     public function create()
     {
-        return view('ordene.create');
+        $array_inventario = Inventario::orderBy('descr', 'asc')->lists('descr','id');
+        return view('ordene.create', ['datos'        => $array_inventario,
+                                    'array_ciudad' => $this->array_ciudad,
+                                    'array_estado' => $this->array_estado,
+                                    'array_encomienda' => $this->array_encomienda,
+                                    'array_banco' => $this->array_banco,
+                                    'array_tp' => $this->array_tp
+                                    ]);
+
     }
 
     /**
@@ -125,12 +140,16 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InventarioRequest $request)
+    public function store(Request $request)
     {
+    //dd($request);
+  //      MailController::graciaspago($request->all());
         $datos = new Ordenes($request->all());
         $datos->save();
+        //$datos = \App\Ordenes::find(1);
+        MailController::graciaspago($datos);
 
-        Flash::success("Se ha registrado ".$datos->nombre. " de forma exitosa!");
+        Flash::success("Se ha registrado la orden de ".$datos->nombre. " de forma exitosa!");
         return redirect()->route('ordene.index');
     }
 
@@ -153,21 +172,22 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
      */
     public function edit($id)
     {
-        $array_ciudad     = Ciudad::orderBy('desc', 'asc')->lists('desc','id');
-        $array_estado     = Estado::orderBy('desc', 'asc')->lists('desc','id');
-        $array_encomienda = Encomienda::orderBy('nombre', 'asc')->lists('nombre','id');
-        $array_banco      = Banco::orderBy('nombre', 'asc')->lists('nombre','id');
-        $array_tp         = Tipopago::orderBy('nombre', 'asc')->lists('nombre','id');
-
-        //dd($array_ciudad);
-
+        //dd($array_estado);
         return view('ordene.edit', ['datos'        => $this->datos,
-                                    'array_ciudad' => $array_ciudad,
-                                    'array_estado' => $array_estado,
-                                    'array_encomienda' => $array_encomienda,
-                                    'array_banco' => $array_banco,
-                                    'array_tp' => $array_tp
+                                    'array_ciudad' => $this->array_ciudad,
+                                    'array_estado' => $this->array_estado,
+                                    'array_encomienda' => $this->array_encomienda,
+                                    'array_banco' => $this->array_banco,
+                                    'array_tp' => $this->array_tp
                                     ]);
+    }
+
+    public function reporteporenviar(Request $request)
+    {
+        //$imagenes = Inv_imag::OrderBy('id')->get();
+        $datos = Ordenes::OrderBy('id')->get();
+        //dd($datos);
+        return view('ordene.print', ['datos' => $datos]);
     }
 
     /**

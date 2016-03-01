@@ -1,3 +1,5 @@
+hacer MailController
+Route::resource('mail',MailController);
 ctrl shit c = color
 
 #### Crear un modelo y la migracion

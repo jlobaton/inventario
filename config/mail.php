@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'from' => ['address' => 'jesuslobaton@gmail.com', 'name' => 'Seguridad y Sistema JM'],
+    'from' => ['address' => 'jlobaton@seguridadsistema.com.ve', 'name' => 'Seguridad y Sistema JM'],
+//    'from' => ['address' => 'jesuslobaton@gmail.com', 'name' => 'Seguridad y Sistema JM'],
 
     /*
     |--------------------------------------------------------------------------

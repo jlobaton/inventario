@@ -12,8 +12,8 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('correo','Correo'); !!}
-			{!! Form::email('correo',$datos->email, ['class' => 'form-control', 'placeholder' => 'example@gmail.com', 'required']); !!}
+			{!! Form::label('email','Correo'); !!}
+			{!! Form::email('email',$datos->email, ['class' => 'form-control', 'placeholder' => 'example@gmail.com', 'required']); !!}
 		</div>
 
 		<div class="form-group">

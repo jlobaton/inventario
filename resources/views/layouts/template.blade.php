@@ -10,7 +10,7 @@
 	<title>@yield('title', 'Bienvenido') | SyS JM</title>
 
     <!-- Bootstrap Core CSS -->
-    {!! Html::style('../themes/bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
+    {!! Html::style('../themes/bower_components/bootstrap/dist/css/bootstrap.css') !!}
 
     <!-- MetisMenu CSS -->
     {!! Html::style('../themes/bower_components/metisMenu/dist/metisMenu.min.css') !!}
@@ -28,7 +28,7 @@
     {!! Html::style('../plugins/datepicker/css/datepicker.css') !!}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -36,7 +36,7 @@
 
 	{!! Html::style('css/estilo.css') !!}
 
-<link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif:400,400italic,700italic" rel="stylesheet" type="text/css">
+<!-- link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif:400,400italic,700italic" rel="stylesheet" type="text/css" -->
 
 </head>
 

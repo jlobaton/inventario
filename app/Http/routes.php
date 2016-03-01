@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('graciaspago',function(){
+
+	$datos = \App\Ordenes::find(1);
+	//dd($datos->inventario->descr);
+	return view('correos/graciaspago', ['datos' => $datos]);
+});
 Route::resource('mail','MailController');
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
@@ -35,9 +41,12 @@ Route::post('migracion/saveimagenes', [
 	'uses' => 'MigracionController@saveimagenes',
 	'as' => 'migracion.saveimagenes']);
 
-Route::get('imagenes/index', [
+/*Route::get('imagenes/index', [
 	'uses' => 'ImagenesController@index',
 	'as' => 'imagenes.index']);
+*/
+Route::resource('imagenes', 'ImagenesController');
+
 
 //Route::controller('formulario', 'FormularioController');
 Route::resource('login', 'LoginController');
@@ -113,6 +122,10 @@ Route::get('ordene/{id}/enviar', [
 Route::get('ordene/enviado', [
 	'uses' => 'OrdeneController@enviado',
 	'as' => 'ordene.enviado']);
+
+Route::get('ordene/reporteporenviar', [
+	'uses' => 'OrdeneController@reporteporenviar',
+	'as' => 'ordene.reporteporenviar']);
 
 Route::resource('ordene','OrdeneController');
 Route::get('ordene/{id}/destroy', [

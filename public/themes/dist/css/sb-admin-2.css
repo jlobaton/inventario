@@ -18,6 +18,7 @@ body {
     background-color: #fff;
 }
 
+/* Portrait tablet to landscape and desktop */
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;

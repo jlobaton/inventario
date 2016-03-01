@@ -6,10 +6,11 @@
 <div class="table-responsive">
 
 {!! Form::open(['route' => 'inventario.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-        <div class='input-group'>
+        <div class="input-group custom-search-form">
             {!! Form::text('buscar', $buscar, ['class'=> 'form-control', 'placeholder' => 'Buscar ...', 'aria-describedby' => 'search']) !!}
-            <span class="input-group-addon" id='search'><span class="glyphicon glyphicon-search"  aria-hidden="true"></span></span>
+            <span class="input-group-btn"><button type="submit" class="btn btn-default" id='search'><i class="fa fa-search"></i></button></span>
         </div>
+
     {!! Form::close()!!}
 <hr>
 
