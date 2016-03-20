@@ -27,20 +27,26 @@
         </tr>
     </thead>
     <tbody>
-        @if($datos)
+        @if(!empty($datos[0]))
         @foreach ($datos as $dato)
             <tr>
                 <td>{{ $dato->nombre }}</td>
                 <td>{{ $dato->nrocuenta }}</td>
                 <td>{{ $dato->tipocuenta }}</td>
                 <td class="acciones">
-                    <a href="{{ route('banco.destroy', $dato->id) }}" class="btn btn-danger" onclick="return confirm('Esta seguro que desea Eliminarlo?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-
-                    <a href="{{ route('banco.edit', $dato->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a href="{{ route('banco.edit', $dato->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                        <a href="{{ route('banco.destroy', $dato->id) }}" class="btn btn-danger" onclick="return confirm('Esta seguro que desea Eliminarlo?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                    </div>
+                </td>
             </tr>
         @endforeach
         @else
-            {{ "NO EXISTEN DATOS" }}
+            <tr>
+                <td colspan="4">
+                    <center>{{ "NO EXISTEN DATOS" }}</center>
+                </td>
+            </tr>
         @endif
 
     </tbody>

@@ -79,8 +79,8 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
+                                    <div class="huge">0</div>
+                                    <div>Prueba</div>
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -27,8 +27,9 @@ return [
     | the Mailgun mail service which will provide reliable deliveries.
     |
     */
-
+    //'host' => env('MAIL_HOST', 'localhost'),
     'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    //'host' => env('MAIL_HOST', 'mail.autorepuestostoyogama.com.ve'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,8 +81,7 @@ return [
     | connection. You may also set the "password" value below this one.
     |
     */
-
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME','jlobaton@seguridadsistema.com.ve'),
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD','JM565394'),
 
     /*
     |--------------------------------------------------------------------------

@@ -64,7 +64,7 @@
 		<div class="form-group">
 			{!! Form::label('precio','Precio', ['class' => 'col-sm-2 control-label']); !!}
 		<div class="col-sm-10">
-			{!! Form::number('precio',NULL, ['class' => 'form-control', 'placeholder' => 'Indique el Precio de Venta', 'required']); !!}
+			{!! Form::text('precio',NULL, ['class' => 'form-control', 'placeholder' => 'Indique el Precio de Venta', 'required']); !!}
 		</div>
 		</div>
 		<div class="form-group">
@@ -92,4 +92,15 @@
 
 	{!! Form::close() !!}
 
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#precio').priceFormat({
+	    prefix: 'Bs ',
+	    centsSeparator: ',',
+	    thousandsSeparator: '.',
+	    centsLimit: 2
+	});
+});
+
+</script>
 @endsection

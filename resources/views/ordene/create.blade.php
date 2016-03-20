@@ -1,16 +1,18 @@
-@extends('layouts.template')
+@extends('layouts.backend.template')
 
 @section('title','Crear una Orden')
 
 @section('content')
 
+
 	<div class="tabla_principalv2 form-horizontal">
 	{!! Form::open(['route' => ['ordene.store'], 'method' => 'POST' ,'class'=>"form-horizontal"]) !!}
 
-<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-  <input class="span2" size="16" value="12-02-2012" id="myDate" type="text">
-  <span class="add-on"><i class="fa fa-calendar"></i></span>
+<div class="panel panel-anaranja">
+<div class="panel-heading">
+	<h3 class="panel-title">Datos del Pago </h3>
 </div>
+	<div class="panel-body">
 
 	  <div class="form-group">
 	    {!! Form::label('nombre','Nombre', ['class' => 'col-sm-2 control-label']); !!}
@@ -72,13 +74,13 @@
 		<div class="form-group">
 			{!! Form::label('monto','Monto Cancelado', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::number('monto','', ['class' => 'form-control', 'placeholder' => 'monto de su pago', 'required']); !!}
+			{!! Form::text('monto','', ['class' => 'form-control', 'placeholder' => 'monto de su pago', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('fecha','Fecha del Pago', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('fecha','', ['class' => 'form-control', 'placeholder' => 'fecha del pago', 'required']); !!}
+			{!! Form::text('fecha',date('d-m-Y'), ['id'=>'datepicker', 'class' => 'form-control', 'placeholder' => 'fecha del pago', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -87,7 +89,33 @@
 			{!! Form::textarea('obser','', ['class' => 'form-control', 'placeholder' => 'observación general', "rows"=> 2,'']); !!}
 			</div>
 		</div>
-		<h3> Datos del Envio </h3>
+
+	</div>
+</div>
+
+<div class="panel panel-anaranja">
+<div class="panel-heading">
+	<h3 class="panel-title">REGISTRATE !!! </h3>
+</div>
+	<div class="panel-body">
+
+		<div class="form-group">
+			{!! Form::label('estatus','¿Desea recibir nuestras Lista de Precio por correo?', ['class' => 'col-sm-2 control-label']); !!}
+		<div class="col-sm-10">
+			{!! Form::radio('estatus', '1') !!} Si &nbsp;&nbsp;&nbsp;
+			{!! Form::radio('estatus', '0') !!} No
+		</div>
+		</div>
+
+</div>
+</div>
+
+<div class="panel panel-anaranja">
+<div class="panel-heading">
+	<h3 class="panel-title">Datos del Envio </h3>
+</div>
+	<div class="panel-body">
+
 		<div class="form-group">
 			{!! Form::label('envnombre','Nombre Completo', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
@@ -95,9 +123,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('cedula','Cédula', ['class' => 'col-sm-2 control-label']); !!}
+			{!! Form::label('envcedula','Cédula', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('cedula','', ['class' => 'form-control', 'placeholder' => 'cédula de identidad de la persona que va a retirar', 'required']); !!}
+			{!! Form::text('envcedula','', ['class' => 'form-control', 'placeholder' => 'cédula de identidad de la persona que va a retirar', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -115,7 +143,7 @@
 		<div class="form-group">
 			{!! Form::label('envdirec','Dirección del Envío', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('envdirec','', ['class' => 'form-control', 'placeholder' => 'dirección exacta del envío', 'required']); !!}
+			{!! Form::textarea('envdirec','', ['class' => 'form-control', 'placeholder' => 'dirección exacta del envío', 'required', 'rows'=> 2]); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -136,12 +164,21 @@
 			{!! Form::textarea('envobser','', ['class' => 'form-control', 'placeholder' => 'observación general',"rows"=> 2]); !!}
 			</div>
 		</div>
-		<div class="form-group">
-			<a class="btn btn-primary" href="{{ redirect()->back() }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
-
+	</div>
+</div>
 			{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
 		</div>
 
 	{!! Form::close() !!}
 	</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#monto').priceFormat({
+	    prefix: 'Bs ',
+	    centsSeparator: ',',
+	    thousandsSeparator: '.',
+	    centsLimit: 2
+	});
+});
+</script>
 @endsection

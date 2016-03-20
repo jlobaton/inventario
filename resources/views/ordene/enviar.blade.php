@@ -9,7 +9,7 @@
 		{!! Form::hidden('id',$datos->id); !!}
 		<div class="form-group">
 			{!! Form::label('fecha','Fecha del Envio'); !!}
-			{!! Form::text('fecha', date('d-m-Y'), ['class' => 'form-control', 'placeholder' => 'Indique la fecha del envio', 'required']); !!}
+			{!! Form::text('fecha', date('d-m-Y'), ['id'=>'datepicker','class' => 'form-control', 'placeholder' => 'Indique la fecha del envio', 'required']); !!}
 		</div>
 
 		<div class="form-group">
@@ -29,7 +29,7 @@
 
 		<div class="form-group">
 			{!! Form::label('envdirec','Dirección del Envío'); !!}
-			{!! Form::text('envdirec',$datos->envdirec, ['class' => 'form-control', 'placeholder' => 'Indique la dirección exacta del envío', 'required']); !!}
+			{!! Form::textarea('envdirec',$datos->envdirec, ['class' => 'form-control', 'placeholder' => 'Indique la dirección exacta del envío', 'required', 'rows'=> 2]); !!}
 		</div>
 		<div class="form-group">
 			{!! Form::label('estado_id','Estado'); !!}
@@ -42,7 +42,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('envobser','Observación'); !!}
-			{!! Form::text('envobser',$datos->envobser, ['class' => 'form-control', 'placeholder' => 'Observación General']); !!}
+			{!! Form::textarea('envobser',$datos->envobser, ['class' => 'form-control', 'placeholder' => 'Observación General', 'rows'=> 2]); !!}
 		</div>
 
 		<div class="form-group">

@@ -144,7 +144,7 @@
                             <a href="{{ route('ordene.index') }}">
                                 <div>
                                     <i class="fa fa-comment fa-fw"></i> Nuevos Pedidos
-                                    <span class="pull-right text-muted small">{{ (isset($datos_pedido))? $datos_pedido[0]->fecha->diffForHumans() : ''  }}</span>
+                                    <span class="pull-right text-muted small">{{ (isset($datos_pedido))? (is_array($datos_pedido)) ? $datos_pedido[0]->fecha->diffForHumans() : '' : ''     }}</span>
                                 </div>
                             </a>
                         </li>
@@ -154,7 +154,7 @@
                                 <div>
 
                                     <i class="glyphicon glyphicon-hourglass fa-fw"></i> Por Enviar
-                                    <span class="pull-right text-muted small">{{ (isset($PorEnviar))? $PorEnviar[0]->fecha->diffForHumans() : ''  }}
+                                    <span class="pull-right text-muted small">{{ (isset($PorEnviar))? (is_array($PorEnviar)) ? $PorEnviar[0]->fecha->diffForHumans() : '' : ''     }}</span>
                                    </span>
                                 </div>
                             </a>

@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Ing. Jesus Maria Lobaton Escobar">
 
+
 	<title>@yield('title', 'Bienvenido') | SyS JM</title>
 
     <!-- Bootstrap Core CSS -->
@@ -33,6 +34,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js?ver=3.4.2" type="text/javascript"></script>
 
 	{!! Html::style('css/estilo.css') !!}
 
@@ -83,12 +86,21 @@
     <!-- Custom Theme JavaScript -->
         {!! Html::script('../themes/dist/js/sb-admin-2.js') !!}
 
-        {!! Html::script('../plugins/datepicker/js/bootstrap-datepicker.js') !!}
+        {!! Html::script('../plugins/datepicker/js/bootstrap-datepicker.min.js') !!}
+
+        {!! Html::script('../plugins/moneda/jquery.price_format.min.js') !!}
+
+<script src="/js/jquery.PrintArea.js" type="text/JavaScript" language="javascript"></script>
 
         <script>
-    $('#myDate').datepicker();
-</script>
 
-
+    $('#datepicker').datepicker({
+        format: "dd-mm-yyyy",
+        maxViewMode: 1,
+        clearBtn: true,
+        language: "es",
+        autoclose: true
+    });
+        </script>
 </body>
 </html>

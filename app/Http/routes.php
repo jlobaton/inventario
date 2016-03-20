@@ -11,12 +11,15 @@
 |
 */
 
+Route::resource('herramienta', 'HerramientaController');
+
 Route::get('graciaspago',function(){
 
 	$datos = \App\Ordenes::find(1);
 	//dd($datos->inventario->descr);
-	return view('correos/graciaspago', ['datos' => $datos]);
+	//return view('correos/graciaspago', ['datos' => $datos]);
 });
+
 Route::resource('mail','MailController');
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
@@ -114,6 +117,22 @@ Route::post('ordene/updatenviar', [
 	'as' => 'ordene.updatenviar'
 	]);
 
+
+Route::get('ordene/compra', [
+	'uses' => 'OrdeneController@compra',
+	'as' => 'ordene.compra']);
+
+Route::post('ordene/store_compra', [
+	'uses' => 'OrdeneController@store_compra',
+	'as' => 'ordene.store_compra'
+	]);
+
+
+Route::get('ordene/{id}/showpago', [
+	'uses' => 'OrdeneController@showpago',
+	'as' => 'ordene.showpago'
+	]);
+
 Route::get('ordene/{id}/enviar', [
 	'uses' => 'OrdeneController@enviar',
 	'as' => 'ordene.enviar'
@@ -123,6 +142,7 @@ Route::get('ordene/enviado', [
 	'uses' => 'OrdeneController@enviado',
 	'as' => 'ordene.enviado']);
 
+
 Route::get('ordene/reporteporenviar', [
 	'uses' => 'OrdeneController@reporteporenviar',
 	'as' => 'ordene.reporteporenviar']);
@@ -131,6 +151,11 @@ Route::resource('ordene','OrdeneController');
 Route::get('ordene/{id}/destroy', [
 	'uses' => 'OrdeneController@destroy',
 	'as' => 'ordene.destroy'
+	]);
+
+Route::get('ordene/{id}/destroyenviado', [
+	'uses' => 'OrdeneController@destroyenviado',
+	'as' => 'ordene.destroyenviado'
 	]);
 
 

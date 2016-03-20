@@ -40,8 +40,8 @@ class MailController extends Controller
     }
 
 
-    public static function graciaspago($data)
-    {
+    public static function graciaspago($data){
+        /// ENVIA UN CORREO AL CLIENTE
         //dd($data);
         mail::send('correos.graciaspago',['datos'=> $data], function($messages) use ($data) {
             $messages->from(env('MAIL_USERNAME'), env('MAIL_NAME'));
@@ -49,7 +49,9 @@ class MailController extends Controller
             $messages->to($data->correo);
         });
 
-        ////////////////////////////////////////
+        ///////////////////////////////////////////
+        /// INFORMA ADMINISTRADOR ACERCA DEL PAGO
+        ///////////////////////////////////////////
         $cuerpo = 'Haz Recibido un Pago de '.$data->nombre.' -Banco: '.$data->banco->nombre.' Bs. '.$data->monto.'  -Producto: '.$data->inventario->descr;
 
         mail::raw($cuerpo,function($message)
@@ -59,6 +61,16 @@ class MailController extends Controller
         });
        /// dd('sss');
     }
+
+    public static function compra($data){
+   //     dd($data);
+        mail::send('correos.compra',$data, function($messages) use ($data) {
+            $messages->from(env('MAIL_USERNAME'), env('MAIL_NAME'));
+            $messages->subject('Gracias por su Compra ...');
+            $messages->to($data["correo"]);
+        });
+    }
+
 
 
     /**

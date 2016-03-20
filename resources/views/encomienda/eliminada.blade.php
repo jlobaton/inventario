@@ -23,19 +23,24 @@
         </tr>
     </thead>
     <tbody>
-        @if($datos)
+        @if(!empty($datos[0]))
         @foreach ($datos as $dato)
             <tr>
                 <td>{{ $dato->nombre }}</td>
                 <td class="acciones">
-                    <a href="{{ route('encomienda.restaurar', $dato->id) }}" class="btn btn-danger" onclick="return confirm('Esta seguro que desea Restaurarlo?')"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
-
-                    <a href="{{ route('encomienda.edit', $dato->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a href="{{ route('encomienda.restaurar', $dato->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                        <a href="{{ route('encomienda.edit', $dato->id) }}" class="btn btn-warning" onclick="return confirm('Esta seguro que desea Eliminarlo?')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                    </div>
+                </td>
             </tr>
         @endforeach
         @else
-            {{ "NO EXISTEN DATOS" }}
-        @endif
+            <tr>
+                <td colspan="2">
+                    <center>{{ "NO EXISTEN DATOS" }}</center>
+                </td>
+            </tr>        @endif
 
     </tbody>
 </table>

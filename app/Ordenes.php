@@ -12,7 +12,7 @@ class Ordenes extends Model
 
     protected $table = 'ordenes';
 
-    protected $fillable = ['nombre','apellido', 'seudonimo', 'correo', 'cantidad', 'inventario_id','tipopago_id','bancorigen','banco_id','fecha','monto','obser','envnombre','envcedula','envtele','encomienda_id','envi_direc','estado_id','ciudad_id','enviobser','estatus'];
+    protected $fillable = ['nombre','apellido', 'seudonimo', 'correo', 'cantidad', 'inventario_id','tipopago_id','bancorigen','banco_id','fecha','monto','obser','envnombre','envcedula','envtele','encomienda_id','envdirec','estado_id','ciudad_id','enviobser','estatus'];
 
     protected $dates = ['delete_at', 'fecha'];
 

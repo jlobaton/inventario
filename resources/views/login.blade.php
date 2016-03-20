@@ -101,7 +101,7 @@ body {
 
     <div class="omb_login">
 
-        <center><img src="imagenes/logo.svg" alt="Seguridad y Sistema JM" class="img-responsive"/></center>
+        <center><img src="imags/logo.svg" alt="Seguridad y Sistema JM" class="img-responsive" width="35%"/></center>
         <h3 class="omb_authTitle">INICIO DE SESIÓN</h3>
         <div class="row omb_row-sm-offset-3">
             <div class="col-xs-12 col-sm-6">

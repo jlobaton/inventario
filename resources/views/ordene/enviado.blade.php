@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title','Listado de las Ordenes Envidas')
+@section('title','Listado de las Ordenes Enviadas')
 
 @section('content')
 <div class="table-responsive">
@@ -26,24 +26,30 @@
         </tr>
     </thead>
     <tbody>
-        @if($datos)
-        @foreach ($datos as $dato)
+        @if(!empty($datos[0]))
+            @foreach ($datos as $dato)
+                <tr>
+                    <td>{{ $dato->nroguia }}</td>
+                    <td>{{ $dato->ordenes->nombre." ".$dato->ordenes->apellido }}</td>
+                    <td>{{ $dato->ordenes->inventario->descr }}</td>
+
+                    <td class="texto_centrado">{{ $dato->fecha->format('d-m-Y') }}</td>
+                    <td class="">{{ $dato->ordenes->estatus }}</td>
+
+                    <td class="acciones">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <a href="{{ route('ordene.edit', $dato->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                            <a href="{{ route('ordene.destroyenviado', $dato->id) }}" class="btn btn-danger" onclick="return confirm('Esta seguro que desea Eliminarlo?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+        @else
             <tr>
-                <td>{{ $dato->nroguia }}</td>
-                <td>{{ $dato->ordenes->nombre." ".$dato->ordenes->apellido }}</td>
-                <td>{{ $dato->ordenes->inventario->descr }}</td>
-
-                <td class="texto_centrado">{{ $dato->fecha->format('d-m-Y') }}</td>
-                <td class="">{{ $dato->ordenes->estatus }}</td>
-
-                <td class="acciones">
-                    <a href="{{ route('ordene.edit', $dato->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-
+                <td colspan="6">
+                    <center>{{ "NO EXISTEN DATOS" }}</center>
                 </td>
             </tr>
-        @endforeach
-        @else
-            {{ "NO EXISTEN DATOS" }}
         @endif
 
     </tbody>

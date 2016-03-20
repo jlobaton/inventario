@@ -5,12 +5,7 @@
 @section('content')
 
 	<div class="tabla_principalv2 form-horizontal">
-	{!! Form::open(['route' => ['ordene.update', $datos->id], 'method' => 'PUT']) !!}
-
-<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-  <input class="span2" size="16" value="12-02-2012" id="myDate" type="text">
-  <span class="add-on"><i class="fa fa-calendar"></i></span>
-</div>
+	{!! Form::open(['route' => ['ordene.update', $datos->id], 'method' => 'PUT', 'id' => 'formorden', 'name' => 'formorden']) !!}
 
 	  <div class="form-group">
 	    {!! Form::label('nombre','Nombre', ['class' => 'col-sm-2 control-label']); !!}
@@ -48,7 +43,7 @@
 		<div class="form-group">
 			{!! Form::label('inventario_id','Producto', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('inventario_id',$datos->inventario->descr, ['class' => 'form-control', 'placeholder' => 'Seleccione su Producto', 'required']); !!}
+			{!! Form::select('inventario_id',$array_inventario, $datos->inventario_id,['class' => 'form-control', 'placeholder' => 'Seleccione su Producto', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -72,13 +67,13 @@
 		<div class="form-group">
 			{!! Form::label('monto','Monto Cancelado', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::number('monto',$datos->monto, ['class' => 'form-control', 'placeholder' => 'Indique la monto de su pago', 'required']); !!}
+			{!! Form::text('monto',$datos->monto, ['class' => 'form-control', 'placeholder' => 'Indique la monto de su pago', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('fecha','Fecha del Pago', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('fecha',$datos->fecha, ['class' => 'form-control', 'placeholder' => 'Indique la fecha del pago', 'required']); !!}
+			{!! Form::text('fecha',$datos->fecha->format('d-m-Y'), ['id'=>'datepicker','class' => 'form-control', 'placeholder' => 'Indique la fecha del pago', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -95,9 +90,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('cedula','Cédula', ['class' => 'col-sm-2 control-label']); !!}
+			{!! Form::label('envcedula','Cédula', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('cedula',$datos->cedula, ['class' => 'form-control', 'placeholder' => 'Indique la Cédula de Identidad de la persona que va a retirar', 'required']); !!}
+			{!! Form::text('envcedula',$datos->envcedula, ['class' => 'form-control', 'placeholder' => 'Indique la Cédula de Identidad de la persona que va a retirar', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -139,9 +134,31 @@
 		<div class="form-group">
 			<a class="btn btn-primary" href="{{ redirect()->back() }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
 
-			{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+			{!! Form::button('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
 		</div>
-
 	{!! Form::close() !!}
 	</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#monto').priceFormat({
+	    prefix: 'Bs ',
+	    centsSeparator: '.',
+	    thousandsSeparator: ',',
+	    centsLimit: 0
+	});
+
+	$( "#aceptar").click(function() {
+		$('#monto').priceFormat({
+		    prefix: '',
+		    centsSeparator: '.',
+		    thousandsSeparator: '',
+		    centsLimit: 2
+		});
+
+		 $( "#formorden" ).submit();
+		 return true;
+	});
+});
+</script>
 @endsection

@@ -81,6 +81,10 @@
                     <li>
                         <a href="{{ url('inventario/eliminada') }}"><i class="glyphicon glyphicon-repeat"></i> Eliminadas</a>
                     </li>
+                    <li>
+                        <a href="{{ route('ordene.compra') }}"><i class="glyphicon glyphicon-list-alt"></i> Enviar solicitud de Pago</a>
+                    </li>
+
                 </ul>
             </li>
 
