@@ -23,7 +23,7 @@ class InventarioController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
+        $this->beforeFilter('@find',['only' => ['edit','update','destroy','cambiaroferta','cambiarestatus']]);
     }
 
     public function find(Route $route){
@@ -147,6 +147,34 @@ class InventarioController extends Controller
         Flash::success("Se ha Resturado de forma exitosa!");
         return view('inventario.eliminada')->with('datos',$datos)
                                        ->with('buscar',$request->buscar);
+    }
+
+    public function cambiaroferta($id)
+    {
+        $datos = Inventario::find($id);
+        if (($datos->oferta) == true)
+            $datos->oferta = false;
+        else
+            $datos->oferta = true;
+
+        $datos->save();
+
+        Flash::warning("Se ha actualizado ".$datos->descr." de forma exitosa!");
+        return redirect()->route('inventario.index');
+    }
+
+    public function cambiarestatus($id)
+    {
+        $datos = Inventario::find($id);
+        if (($datos->estatus) == true)
+            $datos->estatus = false;
+        else
+            $datos->estatus = true;
+
+        $datos->save();
+
+        Flash::warning("Se ha actualizado ".$datos->descr." de forma exitosa!");
+        return redirect()->route('inventario.index');
     }
 
 }

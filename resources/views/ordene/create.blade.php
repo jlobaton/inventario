@@ -1,6 +1,6 @@
 @extends('layouts.backend.template')
 
-@section('title','Crear una Orden')
+@section('title','Reporta tu Pago !!!')
 
 @section('content')
 
@@ -98,12 +98,13 @@
 	<h3 class="panel-title">REGISTRATE !!! </h3>
 </div>
 	<div class="panel-body">
+			<h4>Somos Mayorista y Distribuidor de CCTV a nivel nacional, ¿Desea recibir nuestras Lista de Precio por Correo Electrónico?</h4>
 
 		<div class="form-group">
-			{!! Form::label('estatus','¿Desea recibir nuestras Lista de Precio por correo?', ['class' => 'col-sm-2 control-label']); !!}
+			{!! Form::label('suscribir','Suscribirse', ['class' => 'col-sm-2 control-label']); !!}
 		<div class="col-sm-10">
-			{!! Form::radio('estatus', '1') !!} Si &nbsp;&nbsp;&nbsp;
-			{!! Form::radio('estatus', '0') !!} No
+			{!! Form::radio('suscribir', '1',true) !!} Si &nbsp;&nbsp;&nbsp;
+			{!! Form::radio('suscribir', '0') !!} No
 		</div>
 		</div>
 
@@ -162,6 +163,14 @@
 			{!! Form::label('envobser','Observación', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
 			{!! Form::textarea('envobser','', ['class' => 'form-control', 'placeholder' => 'observación general',"rows"=> 2]); !!}
+			</div>
+		</div>
+
+		<div class="form-group">
+			{!! Form::label('seguro','Desea asegurar la Mercancia ?', ['class' => 'col-sm-2 control-label']); !!}
+			<div class="col-sm-10">
+				{!! Form::radio('seguro', '1', true) !!} Si &nbsp;&nbsp;&nbsp;
+				{!! Form::radio('seguro', '0') !!} No
 			</div>
 		</div>
 	</div>

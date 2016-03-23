@@ -7,6 +7,12 @@
 	<div class="tabla_principalv2 form-horizontal">
 	{!! Form::open(['route' => ['ordene.update', $datos->id], 'method' => 'PUT', 'id' => 'formorden', 'name' => 'formorden']) !!}
 
+<div class="panel panel-anaranja">
+<div class="panel-heading">
+	<h3 class="panel-title">Datos del Pago </h3>
+</div>
+	<div class="panel-body">
+
 	  <div class="form-group">
 	    {!! Form::label('nombre','Nombre', ['class' => 'col-sm-2 control-label']); !!}
 	    <div class="col-sm-10">
@@ -82,7 +88,32 @@
 			{!! Form::textarea('obser',$datos->obser, ['class' => 'form-control', 'placeholder' => 'Observación General', "rows"=> 2,'']); !!}
 			</div>
 		</div>
-		<h3> Datos del Envio </h3>
+	</div>
+</div>
+
+<div class="panel panel-anaranja">
+<div class="panel-heading">
+	<h3 class="panel-title">REGISTRATE !!! </h3>
+</div>
+	<div class="panel-body">
+
+		<div class="form-group">
+			{!! Form::label('suscribir','¿Desea Suscribirse?', ['class' => 'col-sm-2 control-label']); !!}
+		<div class="col-sm-10">
+			{!! Form::radio('suscribir', '1', $datos->suscribir ) !!} Si &nbsp;&nbsp;&nbsp;
+			{!! Form::radio('suscribir', '0', ($datos->suscribir==0)? TRUE : FALSE) !!} No
+		</div>
+		</div>
+
+</div>
+</div>
+
+<div class="panel panel-anaranja">
+<div class="panel-heading">
+	<h3 class="panel-title">Datos del Envio </h3>
+</div>
+	<div class="panel-body">
+
 		<div class="form-group">
 			{!! Form::label('envnombre','Nombre Completo', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
@@ -132,12 +163,28 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<a class="btn btn-primary" href="{{ redirect()->back() }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
-
-			{!! Form::button('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
+			{!! Form::label('seguro','Desea asegurar la Mercancia ?', ['class' => 'col-sm-2 control-label']); !!}
+			<div class="col-sm-10">
+				{!! Form::radio('seguro', '1', $datos->seguro ) !!} Si &nbsp;&nbsp;&nbsp;
+				{!! Form::radio('seguro', '0', ($datos->seguro==0)? TRUE : FALSE) !!} No
+			</div>
 		</div>
+
+</div>
+</div>
+
+<div class="rows">
+	<div class="col-md-1">
+			<a class="btn btn-primary" href="javascript:history.back()" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
+	</div>
+	<div class="col-md-1">
+		{!! Form::button('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
+	</div>
+</div>
+
 	{!! Form::close() !!}
 	</div>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -153,7 +200,7 @@ $(document).ready(function(){
 		    prefix: '',
 		    centsSeparator: '.',
 		    thousandsSeparator: '',
-		    centsLimit: 2
+		    centsLimit: 0
 		});
 
 		 $( "#formorden" ).submit();

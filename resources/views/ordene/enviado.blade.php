@@ -37,9 +37,16 @@
                     <td class="">{{ $dato->ordenes->estatus }}</td>
 
                     <td class="acciones">
-                        <div class="btn-group" role="group" aria-label="...">
-                            <a href="{{ route('ordene.edit', $dato->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                            <a href="{{ route('ordene.destroyenviado', $dato->id) }}" class="btn btn-danger" onclick="return confirm('Esta seguro que desea Eliminarlo?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                        <div class="dropdown">
+                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="{{ route('ordene.showpago',$dato->id) }}"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Ver Pago </a> </li>
+                            <li><a href="{{ route('ordene.imprimirorden',$dato->id) }}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir </a> </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ route('ordene.edit', $dato->id) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar </a></li>
+                            <li><a href="{{ route('ordene.destroyenviado', $dato->id) }}" onclick="return confirm('Esta seguro que desea Eliminarlo?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar </a></li>
+                          </ul>
                         </div>
                     </td>
                 </tr>

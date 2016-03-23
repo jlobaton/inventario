@@ -38,6 +38,7 @@ $factory->define(App\Ordenes::class, function (Faker\Generator $faker){
 		'ciudad_id' 	=> 1,
 		'envobser' 		=> $faker->sentence($nbWords = 6),
 		'estatus' 		=> 'Por Enviar',
+		'suscribir'     => 1
 	];
 });
 $factory->define(App\User::class, function (Faker\Generator $faker) {

@@ -148,6 +148,8 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
         $request["fecha"] = Carbon::createFromFormat('d-m-Y', $fecha);
         $datos = new Ordenes($request->all());
         $datos->save();
+        dd($datos);
+        dd($datos->inventario->inv_imag->urlimagen);
         if ($this->enviar_correo) MailController::graciaspago($datos);
 
         //Flash::success("Se ha registrado la orden de ".$datos->nombre. " de forma exitosa!");
@@ -183,15 +185,6 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
                                     'array_banco' => $this->array_banco,
                                     'array_tp' => $this->array_tp
                                     ]);
-    }
-
-    public function reporteporenviar(Request $request)
-    {
-        //$datos = Ordenes::OrderBy('id')->get();
-        $datos = Ordenes::Search($request->buscar)->where('estatus','=','Por enviar')->OrderBy('id','ASC')->get();
-
-        //dd($datos);
-        return view('ordene.print', ['datos' => $datos]);
     }
 
     /**
@@ -276,6 +269,24 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
         return view('ordene.compra');
     }
 ///////////////////////////////////////
+/////  REPORTE PARA IMPRIMIR
+///////////////////////////////////////
+    public function imprimirorden($id)
+    {
+        //dd($id);
+        //$datos = Ordenes::OrderBy('id')->get();
+        $datos = Ordenes::find($id);
+        return view('ordene.print', ['datos' => $datos, 'estatus' => 1]);
+    }
+
+    public function reporteporenviar(Request $request)
+    {
+        //$datos = Ordenes::OrderBy('id')->get();
+        $datos = Ordenes::Search($request->buscar)->where('estatus','=','Por enviar')->OrderBy('id','ASC')->get();
+
+        //dd($datos);
+        return view('ordene.print', ['datos' => $datos, 'estatus' => 2]);
+    }
 
 
 }

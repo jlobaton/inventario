@@ -45,8 +45,8 @@
   </div>
   <div class="panel-body" style='padding: 15px;'>
       <ul class="list-unstyled" style="list-style: outside none none;padding-left: 0;margin-bottom: 10px;margin-top: 0;">
-        <li style="padding-bottom: 8px"><img src="http://www.mercadolibre.com/org-img/home/bullet.gif"/>Todos los productos se envían por solicitud del cliente y viajan por cuenta y riesgo del comprador-cliente</li>
-        <li style="padding-bottom: 8px"><img src="http://www.mercadolibre.com/org-img/home/bullet.gif"/>No nos hacemos responsable si la mercancía llega en mal estado o por perdida usando cualquier empresa de encomienda o de transporte</li>
+        <li style="padding-bottom: 8px"><img src="http://www.mercadolibre.com/org-img/home/bullet.gif"/>Todos los productos se envían por solicitud del cliente y viajan por cuenta y riesgo del comprador-cliente.</li>
+        <li style="padding-bottom: 8px"><img src="http://www.mercadolibre.com/org-img/home/bullet.gif"/>No nos hacemos responsable si la mercancía llega en mal estado o por perdida usando cualquier empresa de encomienda o de transporte.</li>
       </ul>
   </div>
 </div>

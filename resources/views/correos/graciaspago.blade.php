@@ -93,7 +93,7 @@ label {
 	<div class="jumbotron">
 	<div class="row">
 		<div class="col-md-12">
-			<img src="http://toyolobaimport.com/SyS_JM/marketing2/Images/listaprecio_01.jpg" alt="" height="99" width="827">
+			<img width="250px" height="95px" alt="" src="http://www.seguridadsistema.com.ve/imags/logo_top.png">
 		</div>
 	</div>
 		<div class="row">
@@ -120,7 +120,7 @@ label {
 
 			<div class="col-md-5">
 				<a href="#" class="thumbnail">
-					<img class="img-rounded" src="http://www.seguridadsistema.com.ve/app/imagenes/bullet700_1.png" alt="">
+					<img class="img-rounded" src={{ $datos->inventario->inv_imag->urlimagen }} alt="">
 				</a>
 			</div>
 

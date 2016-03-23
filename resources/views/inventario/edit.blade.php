@@ -28,13 +28,13 @@
 		<div class="form-group">
 			{!! Form::label('audio','Audio', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('audio',$datos->audio, ['class' => 'form-control', 'placeholder' => 'Indique la  ', '']); !!}
+			{!! Form::text('audio',$datos->audio, ['class' => 'form-control', 'placeholder' => 'Ej: 4/8/16', '']); !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('resolucion','Resolución', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('resolucion',$datos->resolucion, ['class' => 'form-control', 'placeholder' => 'Indique la Resolución', '']); !!}
+			{!! Form::text('resolucion',$datos->resolucion, ['class' => 'form-control', 'placeholder' => 'Ej: 1024x768', '']); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -87,7 +87,7 @@
 		<div class="form-group">
 			<a class="btn btn-primary" href="{{ route('inventario.index') }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
 
-			{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+			{!! Form::submit('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
 		</div>
 
 	{!! Form::close() !!}
@@ -96,10 +96,23 @@
 $(document).ready(function(){
 	$('#precio').priceFormat({
 	    prefix: 'Bs ',
-	    centsSeparator: ',',
-	    thousandsSeparator: '.',
-	    centsLimit: 2
+	    centsSeparator: '.',
+	    thousandsSeparator: ',',
+	    centsLimit: 0
 	});
+
+	$( "#aceptar").click(function() {
+		$('#precio').priceFormat({
+		    prefix: '',
+		    centsSeparator: '.',
+		    thousandsSeparator: '',
+		    centsLimit: 0
+		});
+
+		 $( "#formorden" ).submit();
+		 return true;
+	});
+
 });
 
 </script>

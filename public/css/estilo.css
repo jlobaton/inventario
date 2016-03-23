@@ -75,7 +75,7 @@ margin: 0 auto;
     background-color: #5cb85c;
     border-color: #4cae4c;
     color: #fff;
-    width: 85%;
+ /*   width: 85%;  */
 }
 
 .form-control::-moz-placeholder {
@@ -96,6 +96,7 @@ margin: 0 auto;
     padding-top: 30px;
     padding-left: 2 0px;
     width: 100%;
+    margin-top: 20px;
 }
 
 thead {
@@ -117,6 +118,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: inherit;
     font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif !important;
     font-weight: 500;
+}
+
+div .PrintArea{
+  margin-left: 20px;
 }
 
 .container-fluid {

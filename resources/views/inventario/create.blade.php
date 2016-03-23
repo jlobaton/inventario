@@ -3,7 +3,7 @@
 @section('title','Agregar un Producto')
 
 @section('content')
-
+<div class="tabla_principalv2">
 	{!! Form::open(['route' => ['inventario.store'], 'method' => 'POST' ,'class'=>"form-horizontal"]) !!}
 
 		<div class="form-group">
@@ -28,13 +28,13 @@
 		<div class="form-group">
 			{!! Form::label('audio','Audio', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('audio','', ['class' => 'form-control', 'placeholder' => 'Indique la  ', '']); !!}
+			{!! Form::text('audio','', ['class' => 'form-control', 'placeholder' => 'Ej: 4/8/16 ', '']); !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('resolucion','Resolución', ['class' => 'col-sm-2 control-label']); !!}
 		<div class="col-sm-10">
-			{!! Form::text('resolucion',NULL, ['class' => 'form-control', 'placeholder' => 'Indique la Resolución', '']); !!}
+			{!! Form::text('resolucion',NULL, ['class' => 'form-control', 'placeholder' => 'Ej: 1024x768', '']); !!}
 		</div>
 		</div>
 		<div class="form-group">
@@ -91,6 +91,7 @@
 		</div>
 
 	{!! Form::close() !!}
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){

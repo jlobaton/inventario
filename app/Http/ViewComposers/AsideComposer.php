@@ -16,10 +16,11 @@ class AsideComposer{
         $UltReg = Inventario::UltimoRegistrado();
         $count_ord = Ordenes::count();
         $datos_pedido = Ordenes::orderBy('id', 'desc')->get();
-        $datos_pedido = Ordenes::orderBy('id', 'desc')->get();
-        $PorEnviar = Ordenes::getPorenviar()->get();
+        //$datos_pedido = Ordenes::orderBy('id', 'desc')->get();
+        $PorEnviar = Ordenes::getPorenviar()->count();
         $Enviado = Ordenes::getEnviado()->get();
 //dd($PorEnviar[0]->fecha);
+        //dd($PorEnviar);
 		$view->with(['UltReg'    => $UltReg,
                      'count_ord' => $count_ord,
                      'datos_pedido' => $datos_pedido,

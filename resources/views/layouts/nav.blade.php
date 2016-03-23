@@ -144,27 +144,27 @@
                             <a href="{{ route('ordene.index') }}">
                                 <div>
                                     <i class="fa fa-comment fa-fw"></i> Nuevos Pedidos
-                                    <span class="pull-right text-muted small">{{ (isset($datos_pedido))? (is_array($datos_pedido)) ? $datos_pedido[0]->fecha->diffForHumans() : '' : ''     }}</span>
+                                    <span class="pull-right text-muted small">{{ (is_object($datos_pedido)) ? $datos_pedido[0]->fecha->diffForHumans() : '' }}</span>
                                 </div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('ordene.index') }}">
                                 <div>
 
                                     <i class="glyphicon glyphicon-hourglass fa-fw"></i> Por Enviar
-                                    <span class="pull-right text-muted small">{{ (isset($PorEnviar))? (is_array($PorEnviar)) ? $PorEnviar[0]->fecha->diffForHumans() : '' : ''     }}</span>
+                                    <span class="pull-right text-muted small">{{ (isset($PorEnviar))?  $PorEnviar ." Articulos": '' }}</span>
                                    </span>
                                 </div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('ordene.enviado') }}">
                                 <div>
                                     <i class="fa fa-truck fa-fw"></i> Enviado
-                                    <span class="pull-right text-muted small">{{ (isset($Enviado))? (is_array($Enviado)) ? $Enviado[0]->fecha->diffForHumans() : '' : ''     }}</span>
+                                    <span class="pull-right text-muted small">{{ (isset($Enviado))? (is_object($Enviado)) ? $Enviado[0]->fecha->diffForHumans() : '' : ''     }}</span>
                                 </div>
                             </a>
                         </li>

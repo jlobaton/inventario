@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="form-group">
-			<a class="btn btn-primary" href="{{ redirect()->back() }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
+			<a class="btn btn-primary" href="javascript:history.back()" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
 
 			{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
 		</div>

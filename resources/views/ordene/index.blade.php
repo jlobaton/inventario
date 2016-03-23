@@ -3,21 +3,22 @@
 @section('title','Listado de las Ordenes')
 
 @section('content')
-<div class="table-responsive1">
+<div class="table-responsive">
 
-<a href="{{ route('ordene.create') }}" class="btn btn-info boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
+<div >
+<a href="{{ route('ordene.create') }}" class="btn btn-success boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
+
+<a href="{{ route('ordene.reporteporenviar') }}" class="btn btn-info boton" role="button"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</a>
 
 {!! Form::open(['route' => 'ordene.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-
-<div class="input-group">
-    <a href="{{ route('ordene.reporteporenviar') }}" class="btn"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a>
-</div>
-
-<div class="input-group custom-search-form">
-    {!! Form::text('buscar', $buscar, ['class'=> 'form-control', 'placeholder' => 'Buscar ...', 'aria-describedby' => 'search']) !!}
-    <span class="input-group-btn"><button type="submit" class="btn btn-default" id='search'><i class="fa fa-search"></i></button></span>
-</div>
+    <div class="pull-right input-group">
+        {!! Form::text('buscar', $buscar, ['class'=> 'form-control', 'placeholder' => 'Buscar ...', 'aria-describedby' => 'search']) !!}
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button"  id='search'><i class="fa fa-search"></i></button>
+      </span>
+    </div>
 {!! Form::close()!!}
+</div>
 <hr>
 <div class="centrado">
 <table class="table table-hover table-bordered table-striped">
@@ -47,10 +48,10 @@
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-
+                    <li><a href="{{ route('ordene.enviar',$dato->id) }}"><span class="fa fa-truck" aria-hidden="true"></span> Enviar </a> </li>
 
                     <li><a href="{{ route('ordene.showpago',$dato->id) }}"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Ver Pago </a> </li>
-                    <li><a href="{{ route('ordene.reporteporenviar') }}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir </a> </li>
+                    <li><a href="{{ route('ordene.imprimirorden',$dato->id) }}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir </a> </li>
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ route('ordene.edit', $dato->id) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar </a></li>
                     <li><a href="{{ route('ordene.destroy', $dato->id) }}" onclick="return confirm('Esta seguro que desea Eliminarlo?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar </a></li>

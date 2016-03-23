@@ -95,6 +95,16 @@ Route::get('encomienda/{id}/restaurar', [
 	'as' => 'encomienda.restaurar'
 	]);
 
+Route::get('inventario/{id}/cambiaroferta', [
+	'uses' => 'InventarioController@cambiaroferta',
+	'as' => 'inventario.cambiaroferta'
+	]);
+
+Route::get('inventario/{id}/cambiarestatus', [
+	'uses' => 'InventarioController@cambiarestatus',
+	'as' => 'inventario.cambiarestatus'
+	]);
+
 Route::get('inventario/{id}/restaurar', [
 	'uses' => 'InventarioController@restaurar',
 	'as' => 'inventario.restaurar'
@@ -142,6 +152,10 @@ Route::get('ordene/enviado', [
 	'uses' => 'OrdeneController@enviado',
 	'as' => 'ordene.enviado']);
 
+Route::get('ordene/{id}/imprimirorden', [
+	'uses' => 'OrdeneController@imprimirorden',
+	'as' => 'ordene.imprimirorden'
+	]);
 
 Route::get('ordene/reporteporenviar', [
 	'uses' => 'OrdeneController@reporteporenviar',
