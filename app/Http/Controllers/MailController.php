@@ -66,12 +66,10 @@ class MailController extends Controller
    //     dd($data);
         mail::send('correos.compra',$data, function($messages) use ($data) {
             $messages->from(env('MAIL_USERNAME'), env('MAIL_NAME'));
-            $messages->subject('Gracias por su Compra ...');
+            $messages->subject(' 🏆 ¡Felicitaciones! Gracias por su Compra ...');
             $messages->to($data["correo"]);
         });
     }
-
-
 
     /**
      * Display a listing of the resource.
