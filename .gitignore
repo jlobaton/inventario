@@ -4,5 +4,6 @@ Homestead.yaml
 Homestead.json
 .env
 database.php
+config/database.php
 *~
 *.zip
