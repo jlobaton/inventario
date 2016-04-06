@@ -4,54 +4,62 @@
 
 @section('content')
 
-	<div class="tabla_principalv2 form-horizontal">
-	  <div class="form-group">
-	    {!! Form::label('nombre','Nombre', ['class' => 'col-sm-2 control-label']); !!}
-	    <div class="col-sm-10">{{ $datos->nombre }}
-	    </div>
-	  </div>
+<div class="responsive">
 
-	  <div class="form-group">
-	    {!! Form::label('apellido','Apellido', ['class' => 'col-sm-2 control-label']); !!}
-	    <div class="col-sm-10">{!! $datos->apellido !!}</div>
-	  </div>
-		<div class="form-group">
-			{!! Form::label('cantidad','Cantidad', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10">{!! $datos->cantidad !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('inventario_id','Producto', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10">{!! $datos->inventario->descr !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('tipopago_id','Tipo de Pago', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10">{!! $datos->tipopago_id !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('bancorigen','Banco de Origen', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10">{!! $datos->bancorigen !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('banco_id','Banco Destino', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10">{!! $datos->banco->nombre !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('monto','Monto Cancelado', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10" id="monto">{!! $datos->monto !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('fecha','Fecha del Pago', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10">{!! $datos->fecha->format('d-m-Y') !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('obser','Observación', ['class' => 'col-sm-2 control-label']); !!}
-			<div class="col-sm-10">{!! $datos->obser !!}</div>
-		</div>
-		<div class="form-group">
+<div class="rows">
+	<div class="col-sm-10">
 			<a class="btn btn-primary" href="javascript:history.back()" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
-
-		</div>
+			<a class="btn btn-info " href='javascript:$("div.PrintArea").printArea()'  role="button"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</a>
 	</div>
+</div>
+
+<div class="PrintArea" id="myPrintArea">
+
+	<div class="row">
+	<div class="col-sm-10">
+	<h3><label>Datos del Pago:</label></h3>
+		<ul>
+			<li>
+				<label>Nombre:</label> {{ $datos->nombre }}
+			</li>
+
+			<li>
+				<label>Apellido:</label> {{ $datos->apellido }}
+			</li>
+			<li>
+				<label>Cantidad:</label> {{ $datos->cantidad }}
+			</li>
+			<li>
+				<label>Producto:</label> {{ $datos->inventario->descr }}
+			</li>
+			<li>
+				<label>Banco Origen: </label> {{ $datos->bancorigen }}
+			</li>
+			<li>
+				<label>Banco Destino: </label> {{ $datos->banco->nombre }}
+			</li>
+			<li>
+				<label>Monto Cancelado: </label> {{ number_format($datos->monto,2,',','.') }}
+			</li>
+			<li>
+				<label>Fecha de Pago: </label> {{ $datos->fecha->format('d-m-Y') }}
+			</li>
+			<li>
+				<label>Observación: </label> {{ $datos->obser }}
+			</li>
+		</ul>
+	</div>
+	</div>
+</div>
+
+<div class="rows">
+	<div class="col-sm-10">
+			<a class="btn btn-primary" href="javascript:history.back()" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
+			<a class="btn btn-info " href='javascript:$("div.PrintArea").printArea()'  role="button"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</a>
+	</div>
+</div>
+
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){

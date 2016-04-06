@@ -68,4 +68,8 @@ class Ordenes extends Model
         return $this->hasOne('App\Enviado');
     }
 
+    public function tipopago()
+    {
+        return $this->belongsTo('App\Tipopago');
+    }
 }

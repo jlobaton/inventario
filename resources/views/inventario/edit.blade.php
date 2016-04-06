@@ -98,7 +98,7 @@ $(document).ready(function(){
 	    prefix: 'Bs ',
 	    centsSeparator: '.',
 	    thousandsSeparator: ',',
-	    centsLimit: 0
+	    centsLimit: 2
 	});
 
 	$( "#aceptar").click(function() {

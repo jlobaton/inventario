@@ -11,7 +11,6 @@
 	</div>
 </div>
 
-
 <!-- div class='visible-print1' id="myPrintArea"-->
 <div class="PrintArea" id="myPrintArea">
 
@@ -46,7 +45,8 @@
 			</li>
 		</ul>
 	</div>
-</div>
+	</div>
+
 
 @endforeach
 @else
@@ -75,13 +75,14 @@
 				<label>Monto: </label> <span id='monto2'>{{ number_format($datos->monto,2,',','.') }}</span>
 			</li>
 			<li>
-				<label>Mercancia Asegurada ? </label> {{ ($d->seguro) ? 'SI' : 'NO' }}
+				<label>Mercancia Asegurada ? </label> {{ ($datos->seguro) ? 'SI' : 'NO' }}
 			</li>
 		</ul>
 	</div>
 	</div>
 
 @endif
+</div>
 
 <div class="rows">
 	<div class="col-sm-10">

@@ -13,4 +13,10 @@ class Tipopago extends Model
     public function scopeSearch($query, $buscar){
     	return $query->where('nombre','LIKE', "%$buscar%");
     }
+
+    public function ordernes()
+    {
+    	return $this->hasOne('App\Ordenes');
+    }
+
 }

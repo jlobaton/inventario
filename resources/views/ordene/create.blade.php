@@ -182,6 +182,10 @@
 	</div>
 <script type="text/javascript">
 $(document).ready(function(){
+	$('#tipopago_id').click(){
+		alert('11');
+	}
+
 	$('#monto').priceFormat({
 	    prefix: 'Bs ',
 	    centsSeparator: ',',

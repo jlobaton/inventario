@@ -5,10 +5,11 @@
 @section('content')
 	<div class="tabla_principalv2">
 	{!! Form::open(['route' => ['configuracion.update', $datos->id], 'method' => 'PUT']) !!}
-
 		<div class="form-group">
-			{!! Form::label('estatus','Estatus'); !!}
-			{!! Form::text('estatus',$datos->estatus, ['class' => 'form-control', 'placeholder' => 'Estatus', 'required']); !!}
+			{!! Form::label('estatus','Estatus', ['class' => 'control-label']); !!}
+			&nbsp;&nbsp;&nbsp;
+				{!! Form::radio('estatus', '1', $datos->estatus) !!} Si &nbsp;&nbsp;&nbsp;
+				{!! Form::radio('estatus', '0', ($datos->estatus==0)? TRUE : FALSE) !!} No
 		</div>
 		<div class="form-group">
 			{!! Form::label('titulo','Titulo'); !!}

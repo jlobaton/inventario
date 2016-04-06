@@ -42,6 +42,8 @@ class OrdeneController extends Controller
     }
 
     public function find(Route $route){
+
+        //dd($route->getParameter('ordene'));
         if ($route->getParameter('ordene')){
             $buscar = $route->getParameter('ordene');
         }else{
@@ -148,8 +150,8 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
         $request["fecha"] = Carbon::createFromFormat('d-m-Y', $fecha);
         $datos = new Ordenes($request->all());
         $datos->save();
-        dd($datos);
-        dd($datos->inventario->inv_imag->urlimagen);
+        //dd($datos);
+        //dd($datos->inventario->inv_imag->urlimagen);
         if ($this->enviar_correo) MailController::graciaspago($datos);
 
         //Flash::success("Se ha registrado la orden de ".$datos->nombre. " de forma exitosa!");
@@ -237,15 +239,8 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
     public function showpago($id)
     {
         //dd($this->datos->fecha->format('d-m-y'));
-        $array_inventario = Inventario::orderBy('descr', 'asc')->lists('descr','id');
-        return view('ordene.showpago', ['datos'        => $this->datos,
-                                    'array_inventario' => $array_inventario,
-                                    'array_ciudad' => $this->array_ciudad,
-                                    'array_estado' => $this->array_estado,
-                                    'array_encomienda' => $this->array_encomienda,
-                                    'array_banco' => $this->array_banco,
-                                    'array_tp' => $this->array_tp
-                                    ]);
+        //$array_inventario = Inventario::orderBy('descr', 'asc')->lists('descr','id');
+        return view('ordene.showpago', ['datos' => $this->datos]);
     }
 
 ///////////////////////////////////////
