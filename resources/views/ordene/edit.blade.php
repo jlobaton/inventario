@@ -43,7 +43,7 @@
 		<div class="form-group">
 			{!! Form::label('cantidad','Cantidad', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::number('cantidad',$datos->cantidad, ['class' => 'form-control', 'placeholder' => 'Indique la cantidad del Producto', 'required']); !!}
+			{!! Form::number('cantidad',$datos->cantidad, ['class' => 'form-control', 'placeholder' => 'Indique la cantidad del Producto', 'min'=>1 , 'max'=>100, 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">

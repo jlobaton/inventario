@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('urlimg','Url Imagen'); !!}
-			{!! Form::text('urlimg',$datos->urlimg, ['class' => 'form-control', 'placeholder' => 'Url de la Imagen a Mostrar']); !!}
+			{!! Form::url('urlimg',$datos->urlimg, ['class' => 'form-control', 'placeholder' => 'Url de la Imagen a Mostrar']); !!}
 		</div>
 
 		<div class="form-group">

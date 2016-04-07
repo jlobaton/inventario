@@ -58,7 +58,7 @@
 		<div class="form-group">
 			{!! Form::label('exist','Existencia', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::number('exist',$datos->exist, ['class' => 'form-control', 'placeholder' => 'Indique la existencia', 'required']); !!}
+			{!! Form::number('exist',$datos->exist, ['class' => 'form-control', 'placeholder' => 'Indique la existencia', 'min'=>1 , 'max'=>2000, 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">

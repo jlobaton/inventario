@@ -3,9 +3,8 @@
 @section('title','Listado de Productos')
 
 @section('content')
-<div class="table-responsive">
 
-<a href="{{ route('inventario.create') }}" class="btn btn-info boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
+<a href="{{ route('inventario.create') }}" class="btn btn-success boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
 
 {!! Form::open(['route' => 'inventario.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
         <div class="input-group custom-search-form">
@@ -60,7 +59,11 @@
 
         @endforeach
         @else
-            {{ "NO EXISTEN DATOS" }}
+            <tr>
+                <td colspan="6">
+                    <center>{{ "NO EXISTEN DATOS" }}</center>
+                </td>
+            </tr>
         @endif
 
     </tbody>
@@ -68,6 +71,6 @@
     <div class="text-center">
         {!! $datos->render() !!}
     </div>
-</div>
+
 </div>
 @endsection

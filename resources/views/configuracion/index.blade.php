@@ -5,7 +5,7 @@
 @section('content')
 <div class="table-responsive">
 
-<a href="{{ route('configuracion.create') }}" class="btn btn-info boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
+<a href="{{ route('configuracion.create') }}" class="btn btn-success boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
 
 {!! Form::open(['route' => 'configuracion.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
         <div class="input-group custom-search-form">

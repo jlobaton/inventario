@@ -33,6 +33,7 @@ class OrdeneController extends Controller
         $this->middleware('auth', ['except' => ['create','store']]);
         $this->beforeFilter('@find',['only' => ['edit','update','destroy', 'enviar','updatenviar', 'showpago']]);
 
+        $this->array_inventario = Inventario::BusquedaBase()->orderBy('descr', 'asc')->lists('descr','id');
         $this->array_ciudad     = Ciudad::orderBy('desc', 'asc')->lists('desc','id');
         $this->array_estado     = Estado::orderBy('desc', 'asc')->lists('desc','id');
         $this->array_encomienda = Encomienda::orderBy('nombre', 'asc')->lists('nombre','id');
@@ -127,8 +128,8 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
      */
     public function create()
     {
-        $array_inventario = Inventario::orderBy('descr', 'asc')->lists('descr','id');
-        return view('ordene.create', ['datos'        => $array_inventario,
+        //$array_inventario = Inventario::orderBy('descr', 'asc')->lists('descr','id');
+        return view('ordene.create', ['datos'        => $this->array_inventario,
                                     'array_ciudad' => $this->array_ciudad,
                                     'array_estado' => $this->array_estado,
                                     'array_encomienda' => $this->array_encomienda,
@@ -178,9 +179,9 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
     public function edit($id)
     {
         //dd($this->datos->fecha->format('d-m-y'));
-        $array_inventario = Inventario::orderBy('descr', 'asc')->lists('descr','id');
+        //$array_inventario = Inventario::orderBy('descr', 'asc')->lists('descr','id');
         return view('ordene.edit', ['datos'        => $this->datos,
-                                    'array_inventario' => $array_inventario,
+                                    'array_inventario' => $this->array_inventario,
                                     'array_ciudad' => $this->array_ciudad,
                                     'array_estado' => $this->array_estado,
                                     'array_encomienda' => $this->array_encomienda,

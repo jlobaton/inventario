@@ -19,6 +19,10 @@ class Inventario extends Model
     	return $query->where('descr','LIKE', "%$buscar%");
     }
 
+    public function scopeBusquedaBase($query){
+        return $query->where('estatus','=', true);
+    }
+
     public static function UltimoRegistrado(){
         return Inventario::max('created_at');
     }

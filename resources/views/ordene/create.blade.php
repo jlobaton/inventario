@@ -44,7 +44,7 @@
 		<div class="form-group">
 			{!! Form::label('cantidad','Cantidad', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::number('cantidad','', ['class' => 'form-control', 'placeholder' => 'cantidad de producto ', 'required']); !!}
+			{!! Form::number('cantidad','', ['class' => 'form-control', 'placeholder' => 'cantidad de producto ', 'min'=>1 , 'max'=>100,'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -132,7 +132,7 @@
 		<div class="form-group">
 			{!! Form::label('envtele','Teléfono', ['class' => 'col-sm-2 control-label']); !!}
 			<div class="col-sm-10">
-			{!! Form::text('envtele','', ['class' => 'form-control', 'placeholder' => 'teléfono de la persona que va a retirar', 'required']); !!}
+			{!! Form::tel('envtele','', ['class' => 'form-control', 'placeholder' => 'teléfono de la persona que va a retirar', 'required']); !!}
 			</div>
 		</div>
 		<div class="form-group">
