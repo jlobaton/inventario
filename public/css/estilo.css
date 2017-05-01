@@ -1,3 +1,23 @@
+.atss a .at-icon-wrapper {
+    display: block;
+    padding: 8px 0;
+}
+
+#at-share-dock {
+    bottom: 0;
+    box-shadow: 0 0 1px 1px #e2dfe2;
+    left: 0;
+    max-width: 100%;
+    right: 0;
+    top: auto;
+    width: 100%;
+    z-index: 1000200;
+}
+
+.panel-body {
+    padding: 15px 31px 31px;
+}
+
 body {
     background-color: #eee;
     color: #333;
@@ -128,7 +148,7 @@ div .PrintArea{
     margin-left: auto;
     margin-right: auto;
     padding-right: 10px;
-     padding-left: 5px;
+    padding-left: 5px;
 }
 
 .page-header {
@@ -136,6 +156,10 @@ div .PrintArea{
     padding-bottom: 9px;
 }
 
+.centrado table thead a:last-child {
+   color: white;
+   text-decoration: none;
+}
 
 .table-responsive {
     border: none;

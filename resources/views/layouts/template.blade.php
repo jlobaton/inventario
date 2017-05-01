@@ -11,7 +11,9 @@
 	<title>@yield('title', 'Bienvenido') | SyS JM</title>
 
     <!-- Bootstrap Core CSS -->
-    {!! Html::style('../themes/bower_components/bootstrap/dist/css/bootstrap.css') !!}
+    <!-- {!! Html::style('../themes/bower_components/bootstrap/dist/css/bootstrap.css') !!} -->
+    {!! Html::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css') !!}
+
 
     <!-- MetisMenu CSS -->
     {!! Html::style('../themes/bower_components/metisMenu/dist/metisMenu.min.css') !!}
@@ -27,6 +29,13 @@
 
 
     {!! Html::style('../plugins/datepicker/css/datepicker.css') !!}
+
+<!-- link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" -->
+    {!! Html::style('https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css111') !!}
+
+<!-- lo nuevo probando -->
+    {!! Html::style('../themes/bower_components/datatables/media/css/dataTables.bootstrap.css') !!}
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
@@ -90,17 +99,22 @@
 
         {!! Html::script('../plugins/moneda/jquery.price_format.min.js') !!}
 
-<script src="/js/jquery.PrintArea.js" type="text/JavaScript" language="javascript"></script>
+    <!-- DataTables -->
 
-        <script>
+        <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 
-    $('#datepicker').datepicker({
-        format: "dd-mm-yyyy",
-        maxViewMode: 1,
-        clearBtn: true,
-        language: "es",
-        autoclose: true
-    });
-        </script>
+        <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+
+        <script src="/js/jquery.PrintArea.js" type="text/JavaScript" language="javascript"></script>
+
+    <script>
+        $('#datepicker').datepicker({
+            format: "dd-mm-yyyy",
+            maxViewMode: 1,
+            clearBtn: true,
+            language: "es",
+            autoclose: true
+        });
+    </script>
 </body>
 </html>

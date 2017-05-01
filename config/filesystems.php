@@ -48,6 +48,11 @@ return [
             'root'   => storage_path('app'), //public_path('js'),
         ],
 
+        'imagenes_app' => [
+            'driver' => 'local',
+            'root'   => public_path('/app/imagenes'), //public_path('js'),
+        ],
+
         'ftp' => [
             'driver'   => 'ftp',
             'host'     => 'ftp.example.com',

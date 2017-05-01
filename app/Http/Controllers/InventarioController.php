@@ -42,11 +42,14 @@ class InventarioController extends Controller
      */
     public function index(Request $request)
     {
-        //$datos = \DB::table('inventario')->OrderBy('id','DESC')->paginate(5);
-        $datos = Inventario::Search($request->buscar)->OrderBy('id','ASC')->paginate(10);
+        //dd($request->page);
+        $sort = ($request->sort)? $request->sort : 'id';
+        $datos = Inventario::Search($request->buscar)->OrderBy($sort,'ASC')->paginate(10);
 
+//DESEO ENVIARLE LA VARIABLE page http://inventario.yo/inventario?page=2
         return view('inventario.index')->with('datos',$datos)
-                                        ->with('buscar',$request->buscar);
+                                       ->with('request',$request)
+                                       ->with('buscar',$request->buscar);
     }
 
     /**
@@ -149,7 +152,7 @@ class InventarioController extends Controller
                                        ->with('buscar',$request->buscar);
     }
 
-    public function cambiaroferta($id)
+    public function cambiaroferta($id, $page)
     {
         $datos = Inventario::find($id);
         if (($datos->oferta) == true)
@@ -160,11 +163,12 @@ class InventarioController extends Controller
         $datos->save();
 
         Flash::warning("Se ha actualizado ".$datos->descr." de forma exitosa!");
-        return redirect()->route('inventario.index');
+        return redirect()->route('inventario.index',['page'=>$page]);
     }
 
-    public function cambiarestatus($id)
+    public function cambiarestatus($id, $page)
     {
+        //dd($page);
         $datos = Inventario::find($id);
         if (($datos->estatus) == true)
             $datos->estatus = false;
@@ -174,7 +178,7 @@ class InventarioController extends Controller
         $datos->save();
 
         Flash::warning("Se ha actualizado ".$datos->descr." de forma exitosa!");
-        return redirect()->route('inventario.index');
+        return redirect()->route('inventario.index',['page'=>$page]);
     }
 
 }

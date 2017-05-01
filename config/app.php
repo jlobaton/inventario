@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +111,8 @@ return [
     'providers' => [
 
         /*
-         * Laravel Framework Service Providers...
+         * Laravel Framework Service Providers...4$
+
          */
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
@@ -144,6 +145,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         //Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
 
         /*
          * Application Service Providers...

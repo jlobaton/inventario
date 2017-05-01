@@ -6,8 +6,10 @@
 
 
 	<div class="tabla_principalv2 form-horizontal">
-	{!! Form::open(['route' => ['ordene.store'], 'method' => 'POST' ,'class'=>"form-horizontal"]) !!}
-
+	{!! Form::open(['route' => ['ordene.store'], 'method' => 'POST' ,'class'=>"form-horizontal", 'id' => 'formorden','name' => 'formorden']) !!}
+<div class="alert alert-danger">
+<strong>Debe llenar TODOS los datos que se le solicitan, para completar el formulario...</strong>
+</div>
 <div class="panel panel-anaranja">
 <div class="panel-heading">
 	<h3 class="panel-title">Datos del Pago </h3>
@@ -175,23 +177,44 @@
 		</div>
 	</div>
 </div>
-			{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+			{!! Form::button('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
 		</div>
 
 	{!! Form::close() !!}
 	</div>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#tipopago_id').click(){
-		alert('11');
-	}
-
 	$('#monto').priceFormat({
 	    prefix: 'Bs ',
 	    centsSeparator: ',',
 	    thousandsSeparator: '.',
 	    centsLimit: 2
 	});
+
+
+	$( "#aceptar").click(function() {
+		$('#monto').priceFormat({
+		    prefix: '',
+		    centsSeparator: '.',
+		    thousandsSeparator: '',
+		    centsLimit: 2
+		});
+
+		 $( "#formorden" ).submit();
+		 return true;
+	});
+
+$('#tipopago_id').click(function(){
+	if ($(this).val() == 3){
+		$('#bancorigen').attr('disabled','disabled');
+		$('#banco_id').val(7);
+		//$('#bancorigen').val(2);
+		$('#bancorigen').removeAttr('required');
+		//$('#banco_id').removeAttr('required');
+	}
 });
+//$('#bancorigen').attr('disabled','disabled');
+});
+
 </script>
 @endsection

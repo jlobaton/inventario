@@ -35,6 +35,12 @@ class Inventario extends Model
         $datos->save();
     }
 
+    public static function BuscarProducto($id){
+
+        return $datos = Inventario::find($id);
+        //dd($datos);
+    }
+
     public function inv_imag()
     {
     	return $this->hasOne('App\Inv_imag');

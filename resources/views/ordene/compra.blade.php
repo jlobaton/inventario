@@ -7,9 +7,9 @@
 	{!! Form::open(['route' => ['ordene.store_compra'], 'method' => 'POST' ,'class'=>"form-horizontal"]) !!}
 
 <div class="panel panel-anaranja">
-<div class="panel-heading">
-	<h3 class="panel-title"></h3>
-</div>
+	<div class="panel-heading">
+		<h3 class="panel-title"></h3>
+	</div>
 	<div class="panel-body">
 
 	  <div class="form-group">

@@ -63,7 +63,7 @@ class OrdeneController extends Controller
     {
      //   $UltReg = Inventario::UltimoRegistrado();
      //   $count_ord = Ordenes::count();
-        $datos = Ordenes::Search($request->buscar)->where('estatus','=','Por enviar')->OrderBy('id','ASC')->paginate(5);
+        $datos = Ordenes::Search($request->buscar)->where('estatus','=','Por enviar')->OrderBy('ID','DESC')->paginate(5);
 
 /*
 dd($datos[0]->fecha->format('d/m/Y'));
@@ -78,7 +78,7 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
 
     public function enviado(Request $request)
     {
-        $datos = Enviado::Search($request->buscar)->OrderBy('id','DESC')->paginate(5);
+        $datos = Enviado::Search($request->buscar)->OrderBy('fecha','DESC')->paginate(5);
 
         return view('ordene.enviado', ['datos'=>$datos,
                                        'buscar'=>$request->buscar]
@@ -151,12 +151,11 @@ dd($fecha->format('d-m-Y'),$datos[0]->fecha->format('d/m/Y'));
         $request["fecha"] = Carbon::createFromFormat('d-m-Y', $fecha);
         $datos = new Ordenes($request->all());
         $datos->save();
-        //dd($datos);
         //dd($datos->inventario->inv_imag->urlimagen);
         if ($this->enviar_correo) MailController::graciaspago($datos);
-
         //Flash::success("Se ha registrado la orden de ".$datos->nombre. " de forma exitosa!");
-        Flash::success("Su Pago se ha registrado de forma exitosa!, Pronto le estaremos enviado su pedido. Gracias por su Pago...");
+//        Flash::success("Su Pago se ha registrado de forma exitosa!, Pronto le estaremos enviado su pedido. Gracias por su Pago...");
+
         return view('layouts.backend.blanco');
     }
     /**

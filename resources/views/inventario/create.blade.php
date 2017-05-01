@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="tabla_principalv2">
-	{!! Form::open(['route' => ['inventario.store'], 'method' => 'POST' ,'class'=>"form-horizontal"]) !!}
+	{!! Form::open(['route' => ['inventario.store'], 'method' => 'POST','id' => 'formorden','class'=>"form-horizontal", 'name' => 'formorden']) !!}
 
 		<div class="form-group">
 			{!! Form::label('codigo','Código', ['class' => 'col-sm-2 control-label']); !!}
@@ -87,7 +87,7 @@
 		<div class="form-group">
 			<a class="btn btn-primary" href="{{ route('inventario.index') }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
 
-			{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+			{!! Form::button('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
 		</div>
 
 	{!! Form::close() !!}
@@ -100,6 +100,18 @@ $(document).ready(function(){
 	    centsSeparator: ',',
 	    thousandsSeparator: '.',
 	    centsLimit: 2
+	});
+
+	$( "#aceptar").click(function() {
+		$('#precio').priceFormat({
+		    prefix: '',
+		    centsSeparator: '.',
+		    thousandsSeparator: '',
+		    centsLimit: 2
+		});
+
+		 $( "#formorden" ).submit();
+		 return true;
 	});
 });
 

@@ -15,7 +15,7 @@ class BancoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['listado','store']]);
         $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
     }
 
@@ -136,4 +136,13 @@ class BancoController extends Controller
         return view('banco.index')->with('datos',$datos)
                                   ->with('buscar',$request->buscar);
     }
+
+    public function listado(Request $request)
+    {
+        //$datos = \DB::table('banco')->OrderBy('nombre','ASC')->paginate(5);
+        $datos = Banco::Search($request->buscar)->OrderBy('nombre','ASC')->get();
+        return view('banco.listado')->with('datos', $datos)
+                                  ->with('buscar',$request->buscar);
+    }
+
 }

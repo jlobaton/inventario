@@ -1,11 +1,11 @@
 @extends('layouts.template')
 
-@section('title','Listado de Imagenes')
+@section('title','Galeria de Imagenes')
 
 @section('content')
 <div class="table-responsive">
 
-<a href="{{ route('imagenes.create') }}" class="btn btn-success boton" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
+<a class="btn btn-primary" href="{{ route('imagenes.index') }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
 
 {!! Form::open(['route' => 'imagenes.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
         <div class="input-group custom-search-form">

@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MigracionRequest;
-use App\Migracion;
 use Laracasts\Flash\Flash;
+use App\Migracion;
 use App\Inventario;
 use App\Inv_imag;
 
@@ -121,7 +121,7 @@ class MigracionController extends Controller
             foreach ($reader->get() as $prod) {
                 $i= $i+1;
 
-               // dd($prod);
+                //dd($prod);
                 Inventario::create([
                     'codpro'    => $prod->codpro,
                     'descr'     => $prod->descr,

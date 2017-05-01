@@ -26,9 +26,9 @@ class BancoRequest extends Request
         return [
             'nombre'       => 'min:3|required',
             'nrocuenta'    => 'min:10|max:20|required',
-            'tipocuenta'   => 'min:4|max:10|required',
+            'tipocuenta'   => 'min:4|max:20|required',
             'cedula'       => 'min:5|max:12|required',
-            'beneficiario' => 'min:4|email|required|',
+            'beneficiario' => 'min:4|required',
             'email'        => 'min:4|email|required'
         ];
     }

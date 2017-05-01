@@ -43,11 +43,24 @@ Route::get('migracion/imagenes', [
 Route::post('migracion/saveimagenes', [
 	'uses' => 'MigracionController@saveimagenes',
 	'as' => 'migracion.saveimagenes']);
+/*
+Route::controller('imagenes', 'ImagenesController', [
+    'anyData'  => 'imagenes.data',
+    'getIndex' => 'imagenes',]);
+*/
+
+Route::get('imagenes/data', [
+	'uses' => 'ImagenesController@AnyData',
+	'as' => 'imagenes.data']);
 
 /*Route::get('imagenes/index', [
 	'uses' => 'ImagenesController@index',
 	'as' => 'imagenes.index']);
 */
+Route::get('imagenes/galeria', [
+	'uses' => 'ImagenesController@galeria',
+	'as' => 'imagenes.galeria']);
+
 Route::resource('imagenes', 'ImagenesController');
 
 
@@ -71,6 +84,8 @@ Route::get('banco/{id}/restaurar', [
 	'as' => 'banco.restaurar'
 	]);
 Route::get('banco/eliminada', 'BancoController@eliminada');
+Route::get('banco/listado', 'BancoController@listado');
+
 Route::resource('banco','BancoController');
 Route::get('banco/{id}/destroy', [
 	'uses' => 'BancoController@destroy',
@@ -95,12 +110,12 @@ Route::get('encomienda/{id}/restaurar', [
 	'as' => 'encomienda.restaurar'
 	]);
 
-Route::get('inventario/{id}/cambiaroferta', [
+Route::get('inventario/{id}/cambiaroferta/{page}', [
 	'uses' => 'InventarioController@cambiaroferta',
 	'as' => 'inventario.cambiaroferta'
 	]);
 
-Route::get('inventario/{id}/cambiarestatus', [
+Route::get('inventario/{id}/cambiarestatus/{page}', [
 	'uses' => 'InventarioController@cambiarestatus',
 	'as' => 'inventario.cambiarestatus'
 	]);

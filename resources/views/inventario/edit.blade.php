@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{!! Form::open(['route' => ['inventario.update', $datos->id], 'method' => 'PUT', 'class'=>"form-horizontal"]) !!}
+	{!! Form::open(['route' => ['inventario.update', $datos->id], 'method' => 'PUT', 'id' => 'formorden','class'=>"form-horizontal",'name' => 'formorden']) !!}
 
 	  <div class="form-group">
 		{!! Form::label('codigo','Código', ['class' => 'col-sm-2 control-label']); !!}
@@ -87,7 +87,7 @@
 		<div class="form-group">
 			<a class="btn btn-primary" href="{{ route('inventario.index') }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Atras</a>
 
-			{!! Form::submit('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
+			{!! Form::button('Guardar', ['class' => 'btn btn-success', 'id' => 'aceptar']) !!}
 		</div>
 
 	{!! Form::close() !!}
@@ -106,7 +106,7 @@ $(document).ready(function(){
 		    prefix: '',
 		    centsSeparator: '.',
 		    thousandsSeparator: '',
-		    centsLimit: 0
+		    centsLimit: 2
 		});
 
 		 $( "#formorden" ).submit();

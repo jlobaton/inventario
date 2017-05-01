@@ -40,6 +40,10 @@
                         <li>
                             <a href="{{ url('banco/eliminada') }}"><i class="glyphicon glyphicon-repeat"></i> Eliminadas</a>
                         </li>
+                        <li>
+                            <a href="{{ url('banco/listado') }}"><i class="glyphicon glyphicon-signal"></i> Mostrar</a>
+                        </li>
+
                     </ul>
                 </li>
 

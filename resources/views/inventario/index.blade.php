@@ -19,10 +19,10 @@
     <thead>
         <tr>
             <td>{{ "" }}</td>
-            <td>{{ "Código" }}</td>
-            <td>{{ "Descripción" }}</td>
-            <td>{{ "Cant" }}</td>
-            <td>{{ "Precio" }}</td>
+            <td><a href="{{ url('inventario?sort=codpro') }}">{{ "Código" }}</a></td>
+            <td><a href="{{ url('inventario?sort=descr')  }}">{{ "Descripción" }}</a></td>
+            <td><a href="{{ url('inventario?sort=exist')  }}">{{ "Cant" }}</a></td>
+            <td><a href="{{ url('inventario?sort=precio') }}">{{ "Precio" }}</a></td>
             <td>{{ "Acción" }}</td>
         </tr>
     </thead>
@@ -44,9 +44,9 @@
                       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="{{ route('inventario.cambiaroferta',$dato->id) }}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Oferta </a> </li>
+                        <li><a href="{{ route('inventario.cambiaroferta',[$dato->id,$request->page]) }}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Oferta </a> </li>
 
-                        <li><a href="{{ route('inventario.cambiarestatus',$dato->id) }}"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Ocultar </a> </li>
+                        <li><a href="{{ route('inventario.cambiarestatus',[$dato->id,$request->page]) }}"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Ocultar </a> </li>
 
                         <li role="separator" class="divider"></li>
 
@@ -69,8 +69,7 @@
     </tbody>
 </table>
     <div class="text-center">
-        {!! $datos->render() !!}
+        {!! $datos->appends(['sort' => $request->sort])->render() !!}
     </div>
-
 </div>
 @endsection

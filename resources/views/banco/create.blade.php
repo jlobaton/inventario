@@ -16,7 +16,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('tipocuenta','Tipo de Cuenta'); !!}
-			{!! Form::text('mensaje',null, ['class' => 'form-control', 'placeholder' => 'Indique el Tipo de Cuenta', 'required']); !!}
+			{!! Form::text('tipocuenta',null, ['class' => 'form-control', 'placeholder' => 'Indique el Tipo de Cuenta', 'required']); !!}
 		</div>
 		<div class="form-group">
 			{!! Form::label('cedula','Cédula'); !!}

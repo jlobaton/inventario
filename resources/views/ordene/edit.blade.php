@@ -200,7 +200,7 @@ $(document).ready(function(){
 		    prefix: '',
 		    centsSeparator: '.',
 		    thousandsSeparator: '',
-		    centsLimit: 0
+		    centsLimit: 2
 		});
 
 		 $( "#formorden" ).submit();
