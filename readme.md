@@ -2,9 +2,6 @@
 ## Laravel PHP Framework
 
 <p align="center">
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
 <img src="http://www.seguridadsistema.com.ve/Screenshot-SySJM.png" />
 </p>
 
