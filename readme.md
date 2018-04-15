@@ -32,6 +32,9 @@ Al momento de descargar, solo tiene que actualizar los paquetes de laravel
 ```
 Restaurar la Base de Datos llamada: ```Laravel5```
 
+Renombrar y personalizar el archivo ```.env.example``` para ```.env``` y personalizarlo.
+
+Cuando el sistema le pregunte el usuario: ``` prueba``` y la clave ```(en blanco)```
 
 ## Contributing
 
