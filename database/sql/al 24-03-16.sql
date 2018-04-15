@@ -42,16 +42,15 @@ CREATE TABLE IF NOT EXISTS `banco` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla `banco`
---
+-- Volcado de datos para la tabla `bancv-111111--
 
 INSERT INTO `banco` (`id`, `nombre`, `nrocuenta`, `tipocuenta`, `cedula`, `beneficiario`, `email`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Provincial', '0108 0908 80 0200042', 'Ahorro', 'v-15668694', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '2016-03-10 06:39:12', NULL),
-(2, 'Mercantil', '0105 0743 03 0743095', 'Ahorro', 'v-15668694', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
-(3, 'Venezuela', '01020112800000054043', 'Corriente', 'v-15668694', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
-(4, 'Tesoro', '0163 0301 11 3013010', 'Ahorro', 'v-15668694', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '2016-02-13 21:51:08', NULL),
-(5, 'Banesco', '0134 0475 52 4751013', 'Corriente', 'v-18949513', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '2016-01-24 10:36:50', NULL),
-(6, 'BFC', '01510131828131005411', 'Corriente', 'v-15668694', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '2015-12-31 20:09:48', '2015-12-31 20:09:48', NULL);
+(1, 'Provincial', '0108 0908 80 0200041', 'Ahorro', 'v-111111', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '2016-03-10 06:39:12', NULL),
+(2, 'Mercantil', '0105 0743 03 0743092', 'Ahorro', 'v-111111', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
+(3, 'Venezuela', '01020112800000054044', 'Corriente', 'v-111111', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
+(4, 'Tesoro', '0163 0301 11 3013012', 'Ahorro', 'v-111111', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '2016-02-13 21:51:08', NULL),
+(5, 'Banesco', '0134 0475 52 4751015', 'Corriente', 'v-111111', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '0000-00-00 00:00:00', '2016-01-24 10:36:50', NULL),
+(6, 'BFC', '01510131828131005416', 'Corriente', 'v-111111', 'JESUS LOBATON', 'ventas@seguridadsistema.com.ve', '2015-12-31 20:09:48', '2015-12-31 20:09:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -2521,7 +2520,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `tipo`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'jlobaton', 'jlobaton@seguridadsistema.com.ve', '$2y$10$fQ3kmDhCXXnZ3djFsr04bOVgXyBJOCa6n9S2HOeqetZTuzHqSoy/S', 'admin', 'EznxAG657WZ0Lomv8F1bPMqeKqhCDd4etHpmKyZqGW52IHfM6tgVgXAPJzNJ', '0000-00-00 00:00:00', '2016-03-16 08:27:59', NULL);
+(1, 'prueba', 'prueba@seguridadsistema.com.ve', '', 'admin', '', '0000-00-00 00:00:00', '2016-03-16 08:27:59', NULL);
 
 --
 -- Restricciones para tablas volcadas
